@@ -46,15 +46,15 @@ Bir müşterinin bir üründen her gün olağan olarak aldığı miktar.
 _Avoid_: Sabit sipariş, varsayılan
 
 **İade**:
-Müşteriden geri alınan, önceki günden kalmış satılmamış ekmek.
-_Avoid_: Bayat, geri dönüş, fire
+Müşteriden geri alınan, önceki günden kalmış satılmamış (bayat) ürün; her ürün çeşidi için ayrı sayılır ve araca geri konur. Ekranda ve raporda "bayat" diye de geçer.
+_Avoid_: Geri dönüş, fire
 
 **Yükleme**:
 Mesai başında veya gün içinde fırından araca konan ürün adedi.
 _Avoid_: Stok, çıkış
 
 **Araçta Kalan**:
-Mesai sonunda araçta dağıtılmadan kalan ürün adedi.
+Araçtaki ürün adedi: yüklenen eksi teslim edilen, artı müşteriden geri alınan iade.
 _Avoid_: Artan, kalan stok
 
 ## Müşteri durumları (bir mesai içinde)
@@ -89,7 +89,7 @@ Günlük tahsilatlı bir müşterinin teslimatında nakit alınmamış olması; 
 ## Rapor
 
 **Mesai Raporu**:
-Mesai bitince oluşan, teslimatları, gidilmeyen müşterileri ve toplamları içeren metin.
+Mesai bitince oluşan, başlangıç saatini, teslimatları, gidilmeyen müşterileri ve ürün bazında verilen ve iade toplamlarını içeren metin; bitiş saati ve süre içermez.
 _Avoid_: Özet, dağıtım listesi
 
 **Detaylı Rapor / Kısa Rapor**:
