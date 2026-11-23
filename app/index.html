@@ -143,6 +143,21 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 .sbtn.ten{width:auto;padding:0 10px;font-size:15px}
 .stp input{width:64px;height:48px;text-align:center;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-display);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
 .stp input::-webkit-outer-spin-button,.stp input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+/* Satış satırı: ürün adı + Taze / Bayat / İade kutuları */
+.prod{padding:12px 0;border-bottom:1px solid var(--line)}
+.prod:last-child{border-bottom:0}
+.pname{font-weight:700;font-size:18px;margin-bottom:8px}
+.tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tc{display:grid;gap:4px;min-width:0}
+.tc label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:center}
+.tc.k-taze label{color:var(--ok)}
+.tc.k-bayat label{color:var(--warn)}
+.tc input{width:100%;height:52px;text-align:center;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-display);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.tc.k-taze input{border-color:color-mix(in srgb,var(--ok) 45%,var(--line))}
+.tc.k-bayat input{border-color:color-mix(in srgb,var(--warn) 45%,var(--line))}
+.tc input::-webkit-outer-spin-button,.tc input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.pm{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.pm button{height:44px;border-radius:10px;border:1px solid var(--line);background:var(--sunk);font-size:22px;font-weight:600;line-height:1}
 .field{display:grid;gap:6px;margin-bottom:12px}
 .field label,.flabel{font-weight:600;font-size:16px}
 .field input[type=text],.field input[type=tel],.field input[type=time],.field input:not([type]),.field textarea,.cashin{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:12px 14px;font-size:18px}
@@ -217,13 +232,17 @@ function statusOf(sh,cid){
 function sumItems(list){const t={};list.forEach(it=>{for(const k in it)t[k]=(t[k]||0)+(+it[k]||0)});return t}
 function itemsText(t,sep=', '){return S.products.filter(p=>t[p.id]).map(p=>p.name+' '+t[p.id]).join(sep)}
 function loaded(sh){return sumItems(sh.loads.map(l=>l.items))}
-/* Araçta kalan = yüklenen − verilen + geri alınan bayat (iade araca geri konur) */
-function remaining(sh){const l=loaded(sh),d=sumItems(sh.deliveries.map(x=>x.items)),b=iadeSum(sh.deliveries),r={};for(const k in {...l,...b})r[k]=Math.max(0,(l[k]||0)-(d[k]||0)+(b[k]||0));return r}
-/* İade (bayat) her ürün için ayrı tutulur: {ürünId: adet} */
+/* Her teslimatta ürün başına üç sayı tutulur ({ürünId: adet}):
+   items = verilen taze, bayat = verilen bayat, iade = müşteriden geri alınan (taze ya da bayat). */
+function bayatSum(list){return sumItems(list.map(d=>d.bayat||{}))}
 function iadeSum(list){return sumItems(list.map(d=>d.iade||{}))}
 function total(o){return Object.values(o||{}).reduce((a,b)=>a+(+b||0),0)}
-/* "Normal Ekmek 40 (bayat 3), Pide 10" */
-function lineText(it,ia){return S.products.filter(p=>it[p.id]||ia[p.id]).map(p=>`${p.name} ${it[p.id]||0}${ia[p.id]?` (bayat ${ia[p.id]})`:''}`).join(', ')}
+/* Araçta kalan = yüklenen − taze verilen − bayat verilen + iade alınan (iade araca geri konur) */
+function remaining(sh){const l=loaded(sh),d=sumItems(sh.deliveries.map(x=>x.items)),z=bayatSum(sh.deliveries),b=iadeSum(sh.deliveries),r={};for(const k in {...l,...b})r[k]=Math.max(0,(l[k]||0)-(d[k]||0)-(z[k]||0)+(b[k]||0));return r}
+/* "Normal Ekmek 40 taze / 5 bayat / 3 iade · Pide 10 taze" */
+function lineText(it,bz,ia){return S.products.filter(p=>it[p.id]||bz[p.id]||ia[p.id]).map(p=>{
+  const parts=[];if(it[p.id])parts.push(it[p.id]+' taze');if(bz[p.id])parts.push(bz[p.id]+' bayat');if(ia[p.id])parts.push(ia[p.id]+' iade');
+  return p.name+' '+parts.join(' / ');}).join(' · ')}
 function groups(sh){
   const m={};sh.deliveries.forEach(d=>{(m[d.cid]=m[d.cid]||[]).push(d)});
   return Object.keys(m).map(cid=>({cid,list:m[cid].sort((a,b)=>a.ts-b.ts)})).sort((a,b)=>a.list[0].ts-b.list[0].ts);
@@ -237,8 +256,9 @@ function report(sh,short){
   L.push(`👤 ${st.name||'Dağıtımcı'} | ⏰ Başlangıç ${hm(sh.start)}`);
   const G=groups(sh);
   const missing=sh.cids.filter(cid=>statusOf(sh,cid)!=='teslim');
-  const totals=sumItems(sh.deliveries.map(d=>d.items));
-  const bayat=iadeSum(sh.deliveries);
+  const taze=sumItems(sh.deliveries.map(d=>d.items));
+  const bayat=bayatSum(sh.deliveries);
+  const iade=iadeSum(sh.deliveries);
   const cash=cashOf(sh.deliveries);
   const cashN=G.filter(g=>cashOf(g.list)>0).length;
   const noPay=G.filter(g=>C(g.cid).daily&&cashOf(g.list)===0);
@@ -246,8 +266,9 @@ function report(sh,short){
     L.push('','✅ *Teslimatlar*');
     if(!G.length)L.push('Teslimat yok.');
     G.forEach((g,i)=>{
-      const c=C(g.cid),it=sumItems(g.list.map(d=>d.items)),ia=iadeSum(g.list),ca=cashOf(g.list);
-      let line=`${i+1}. ${hm(g.list[0].ts)} ${c.name} – ${lineText(it,ia)||'Sadece tahsilat'}`;
+      const c=C(g.cid),ca=cashOf(g.list);
+      const txt=lineText(sumItems(g.list.map(d=>d.items)),bayatSum(g.list),iadeSum(g.list));
+      let line=`${i+1}. ${hm(g.list[0].ts)} ${c.name} – ${txt||'Sadece tahsilat'}`;
       if(ca>0)line+=` | 💵 ${tl(ca)}`;else if(c.daily)line+=' | ⚠️ Tahsilat yok';
       if(g.list.length>1)line+=` (${g.list.length} sefer)`;
       const notes=g.list.map(d=>d.note).filter(Boolean);
@@ -262,10 +283,17 @@ function report(sh,short){
     L.push(`Teslim edilen: ${G.length}/${sh.cids.length} müşteri`);
     if(missing.length)L.push(`Uğranmadı / Kapalı: ${missing.length} müşteri`);
   }
-  L.push('','📊 *Toplam*');
-  const rows=S.products.filter(p=>totals[p.id]||bayat[p.id]).map(p=>`${p.name}: ${totals[p.id]||0} verildi · ${bayat[p.id]||0} bayat`);
-  L.push(...(rows.length?rows:['Teslimat yok']));
-  L.push(`İade toplam: ${total(bayat)}`);
+  // Verilen: ürün başına taze ve bayat
+  L.push('',`📦 *Verilen* (taze ${total(taze)}, bayat ${total(bayat)})`);
+  const given=S.products.filter(p=>taze[p.id]||bayat[p.id]).map(p=>{
+    const parts=[];if(taze[p.id])parts.push(taze[p.id]+' taze');if(bayat[p.id])parts.push(bayat[p.id]+' bayat');
+    return`${p.name}: ${parts.join(' · ')}`;});
+  L.push(...(given.length?given:['Teslimat yok']));
+  // İade: çeşit sayısı, toplam ve her çeşidin adedi
+  const iadeP=S.products.filter(p=>iade[p.id]);
+  L.push('',`↩️ *İade* (${iadeP.length} çeşit, toplam ${total(iade)})`);
+  L.push(...(iadeP.length?iadeP.map(p=>`${p.name}: ${iade[p.id]}`):['İade alınmadı']));
+  L.push('');
   if(cash>0||S.customers.some(c=>c.daily&&sh.cids.includes(c.id)))L.push(`💵 Nakit tahsilat: ${tl(cash)} (${cashN} müşteri)`);
   if(short&&noPay.length)L.push(`⚠️ Tahsilat yok: ${noPay.map(g=>C(g.cid).name).join(', ')}`);
   if(sh.loads.length){
@@ -273,6 +301,7 @@ function report(sh,short){
     const lo=sh.leftover||remaining(sh);
     L.push('Araçta kalan: '+(itemsText(lo,' · ')||'0'));
   }
+  while(L[L.length-1]==='')L.pop();
   return L.join('\n');
 }
 function waNum(p){let d=String(p||'').replace(/\D/g,'');if(!d)return'';if(d.startsWith('00'))d=d.slice(2);if(d.startsWith('0'))d='90'+d.slice(1);if(d.length===10&&d[0]==='5')d='90'+d;return d}
@@ -286,6 +315,13 @@ function topbar(sub,extra=''){
 }
 function backbar(label='Ana ekran'){return`<button class="back" data-act="go" data-v="home">← ${label}</button>`}
 function sampleBanner(){return S.sample?`<div class="banner"><span>Örnek verilerle açıldı. Kendi listenizi girmek için:</span><button data-act="askreset">Kendi verimi gir</button></div>`:''}
+/* Bir ürünün satış satırı: 1. kutu taze verilen, 2. kutu bayat verilen, 3. kutu iade alınan (taze ya da bayat) */
+function saleRow(p,t,b,i){
+  const col=(pre,kind,label,val)=>`<div class="tc k-${kind}"><label for="${pre}${p.id}">${label}</label>
+    <input id="${pre}${p.id}" type="number" inputmode="numeric" min="0" value="${val||0}" aria-label="${esc(p.name)} ${label}">
+    <div class="pm"><button type="button" data-act="dec" data-for="${pre}${p.id}" aria-label="${esc(p.name)} ${label} azalt">−</button><button type="button" data-act="inc" data-for="${pre}${p.id}" aria-label="${esc(p.name)} ${label} artır">+</button></div></div>`;
+  return`<div class="prod"><div class="pname">${esc(p.name)}</div><div class="tri">${col('q_','taze','Taze',t)}${col('z_','bayat','Bayat',b)}${col('i_','iade','İade',i)}</div></div>`;
+}
 function stepper(id,label,val){
   return`<div class="step"><label for="${id}">${esc(label)}</label><div class="stp">
   <button type="button" class="sbtn" data-act="dec" data-for="${id}" aria-label="${esc(label)} bir azalt">−</button>
@@ -309,10 +345,10 @@ function vHome(){
   <div class="bar"><div><button class="big" data-act="start">Mesaiyi Başlat</button></div></div>`;
 }
 function histRow(s){
-  const G=groups(s),t=sumItems(s.deliveries.map(d=>d.items)),tot=Object.values(t).reduce((a,b)=>a+b,0);
+  const G=groups(s),t=total(sumItems(s.deliveries.map(d=>d.items))),z=total(bayatSum(s.deliveries)),i=total(iadeSum(s.deliveries));
   return`<button class="hist" data-act="summary" data-id="${s.id}"><b>${dmy(s.start)} · ${hm(s.start)}</b>
   <span class="chip ${s.sent?'c-sent':'c-unsent'}">${s.sent?'Gönderildi':'Gönderilmedi'}</span>
-  <span class="num">${G.length}/${s.cids.length} müşteri · ${tot} adet${cashOf(s.deliveries)?' · '+tl(cashOf(s.deliveries)):''}</span><span></span></button>`;
+  <span class="num">${G.length}/${s.cids.length} müşteri · ${t} taze${z?` · ${z} bayat`:''}${i?` · ${i} iade`:''}${cashOf(s.deliveries)?' · '+tl(cashOf(s.deliveries)):''}</span><span></span></button>`;
 }
 function vShift(){
   const sh=active(),now=Date.now();
@@ -325,7 +361,7 @@ function vShift(){
     const mine=sh.deliveries.filter(d=>d.cid===cid);
     let sub='';
     if(mine.length){const it=sumItems(mine.map(d=>d.items));const ca=cashOf(mine);
-      sub=(lineText(it,iadeSum(mine))||'Sadece tahsilat')+(ca?` · <span class="cash-dot">${tl(ca)}</span>`:'')+(mine.length>1?` · ${mine.length} sefer`:'');}
+      sub=(lineText(it,bayatSum(mine),iadeSum(mine))||'Sadece tahsilat')+(ca?` · <span class="cash-dot">${tl(ca)}</span>`:'')+(mine.length>1?` · ${mine.length} sefer`:'');}
     else{sub=itemsText(c.std||{})||'Standart adet yok';if(c.daily)sub+=' · 💵 günlük tahsilat';}
     return`<button class="crow s-${s}" data-act="cust" data-id="${cid}" data-name="${esc(c.name.toLocaleLowerCase('tr'))}">
       <span class="ix">${i+1}</span><span class="nm">${esc(c.name)}<span class="sub">${sub}</span></span><span class="chip c-${s}">${ST[s]}</span></button>`;
@@ -337,7 +373,7 @@ function vShift(){
   <div class="stats">
     <button class="stat" data-act="sttime"><small>Başlangıç</small><b>${hm(sh.start)}</b></button>
     <div class="stat"><small>Teslim</small><b class="num">${del}/${sh.cids.length}</b></div>
-    <div class="stat"><small>Bayat iade</small><b class="num">${total(iadeSum(sh.deliveries))}</b></div>
+    <div class="stat"><small>İade</small><b class="num">${total(iadeSum(sh.deliveries))}</b></div>
   </div>
   <div class="truck">${sh.loads.length?`<span>Araçta (tahmini): <b>${itemsText(rem,' · ')||'boş'}</b></span>`:`<span>Yükleme girilmedi</span>`}<button class="link" data-act="load">Yükleme ekle</button></div>
   <div class="sec"><span>Müşteriler · gidiş sırası</span><span class="num">${sh.cids.length-del-done} bekliyor</span></div>
@@ -349,7 +385,7 @@ function vShift(){
 }
 function vSummary(){
   const sh=shiftById(ui.summaryId);if(!sh){ui.view='home';return vHome()}
-  const G=groups(sh),t=sumItems(sh.deliveries.map(d=>d.items)),iade=iadeSum(sh.deliveries),cash=cashOf(sh.deliveries);
+  const G=groups(sh),t=sumItems(sh.deliveries.map(d=>d.items)),bz=bayatSum(sh.deliveries),iade=iadeSum(sh.deliveries),cash=cashOf(sh.deliveries);
   const noPay=G.filter(g=>C(g.cid).daily&&cashOf(g.list)===0).length;
   const txt=report(sh,ui.short);
   const canReopen=!S.activeId&&dmy(sh.start)===today();
@@ -360,8 +396,8 @@ function vSummary(){
   <div class="tiles">
     <div class="tile"><small>Teslim</small><b>${G.length}/${sh.cids.length}</b><p>müşteri</p></div>
     <div class="tile"><small>Nakit</small><b>${tl(cash)}</b><p>${noPay?`⚠️ ${noPay} müşteride tahsilat yok`:'tahsilat'}</p></div>
-    <div class="tile"><small>Ürünler</small><b>${Object.values(t).reduce((a,b)=>a+b,0)}</b><p>${itemsText(t,' · ')||'teslimat yok'}</p></div>
-    <div class="tile"><small>Bayat iade</small><b>${total(iade)}</b><p>${itemsText(iade,' · ')||'bayat alınmadı'}</p></div>
+    <div class="tile"><small>Verilen</small><b>${total(t)+total(bz)}</b><p>Taze ${total(t)} · Bayat ${total(bz)}</p></div>
+    <div class="tile"><small>İade</small><b>${total(iade)}</b><p>${itemsText(iade,' · ')||'iade alınmadı'}</p></div>
   </div>
   <div class="sec">WhatsApp mesajı</div>
   <div class="seg" role="group" aria-label="Rapor biçimi"><button data-act="mode" data-m="d" aria-pressed="${!ui.short}">Detaylı</button><button data-act="mode" data-m="k" aria-pressed="${ui.short}">Kısa</button></div>
@@ -433,15 +469,14 @@ function vSheet(){
     const showForm=edit||!mine.length||s.extra;
     let body='';
     if(!showForm){
-      body+=`<div class="prev">${mine.map(d=>`<div><span><b class="num">${hm(d.ts)}</b> · ${lineText(d.items,d.iade||{})||'—'}${d.cash?` · ${tl(d.cash)}`:''}${d.note?`<br><small>${esc(d.note)}</small>`:''}</span><button class="link" data-act="editdel" data-cid="${s.cid}" data-id="${d.id}">Düzenle</button></div>`).join('')}</div>`;
+      body+=`<div class="prev">${mine.map(d=>`<div><span><b class="num">${hm(d.ts)}</b> · ${lineText(d.items,d.bayat||{},d.iade||{})||'—'}${d.cash?` · ${tl(d.cash)}`:''}${d.note?`<br><small>${esc(d.note)}</small>`:''}</span><button class="link" data-act="editdel" data-cid="${s.cid}" data-id="${d.id}">Düzenle</button></div>`).join('')}</div>`;
       return sheetWrap(c.name,`${ST[st]}${c.note?' · '+esc(c.note):''}`,body,`<button class="big" data-act="extra" data-id="${s.cid}">+ Ek teslimat</button>`);
     }
     const base=edit?edit.items:(mine.length?{}:(c.std||{}));
-    const prods=S.products.filter(p=>p.active||(edit&&(edit.items[p.id]||(edit.iade||{})[p.id])));
+    const prods=S.products.filter(p=>p.active||(edit&&(edit.items[p.id]||(edit.bayat||{})[p.id]||(edit.iade||{})[p.id])));
     if(!edit&&!mine.length)body+=`<div class="pills"><button class="btn" data-act="setst" data-cid="${s.cid}" data-s="kapali" ${st==='kapali'?'aria-pressed="true"':''}>Kapalıydı</button><button class="btn" data-act="setst" data-cid="${s.cid}" data-s="ugranmadi">Uğranmadı</button>${st!=='bekliyor'?`<button class="btn" data-act="clrst" data-cid="${s.cid}">Bekliyor'a al</button>`:''}</div>`;
     body+=`<div id="custForm" data-std='${esc(JSON.stringify(edit||mine.length?{}:(c.std||{})))}'>`;
-    body+=`<div class="card">${prods.map(p=>stepper('q_'+p.id,p.name,base[p.id])).join('')}</div>`;
-    body+=`<div class="flabel" style="margin-bottom:6px">Bayat iade (geri alınan)</div><div class="card">${prods.map(p=>stepper('i_'+p.id,p.name,edit?(edit.iade||{})[p.id]:0)).join('')}</div>`;
+    body+=`<div class="card">${prods.map(p=>saleRow(p,base[p.id],edit?(edit.bayat||{})[p.id]:0,edit?(edit.iade||{})[p.id]:0)).join('')}</div>`;
     const cashVal=edit&&edit.cash!=null?edit.cash:'';
     const cashOpen=c.daily||(edit&&edit.cash>0);
     body+=`<div id="cashBox" class="field" ${cashOpen?'':'hidden'}><label for="q_cash">Alınan nakit (₺)</label><input id="q_cash" class="cashin" type="number" inputmode="numeric" min="0" step="1" value="${cashVal}" placeholder="0">${c.daily?'<p class="hint">Boş kalırsa raporda "⚠️ Tahsilat yok" yazar.</p>':''}</div>`;
@@ -475,7 +510,7 @@ function vSheet(){
     if(!sh.deliveries.length)body+=`<div class="alert"><span><b>Hiç teslimat girilmedi.</b> Yine de bitirebilirsiniz.</span></div>`;
     if(pend)body+=`<div class="alert"><span><b>${pend} müşteri işaretlenmedi.</b> Bitirince "Uğranmadı" sayılacaklar.</span></div>`;
     if(sh.loads.length){const r=remaining(sh);
-      body+=`<div class="flabel">Araçta kalan</div><p class="hint" style="margin:0 0 8px">Hesaplanan değer. Gerekirse düzeltin.</p><div class="card">${S.products.filter(p=>loaded(sh)[p.id]).map(p=>stepper('r_'+p.id,p.name,r[p.id])).join('')}</div>`;}
+      body+=`<div class="flabel">Araçta kalan</div><p class="hint" style="margin:0 0 8px">Hesaplanan değer. Gerekirse düzeltin.</p><div class="card">${S.products.filter(p=>p.id in r).map(p=>stepper('r_'+p.id,p.name,r[p.id])).join('')}</div>`;}
     return sheetWrap('Mesaiyi bitir','Emin misiniz?',body,`<button class="big dark" data-act="dofinish">Evet, mesaiyi bitir</button><button class="btn" data-act="close">Vazgeç</button>`);
   }
   if(s.t==='sttime'){
@@ -528,7 +563,8 @@ function updSaveLabel(){
   const f=$('custForm'),b=$('saveBtn');if(!f||!b)return;
   let std={};try{std=JSON.parse(f.dataset.std||'{}')}catch(e){}
   const keys=Object.keys(std).filter(k=>std[k]);
-  const same=keys.length&&S.products.every(p=>{const el=$('q_'+p.id);return!el||(+el.value||0)===(+std[p.id]||0)});
+  const val=id=>{const el=$(id);return el?(+el.value||0):0};
+  const same=keys.length&&S.products.every(p=>val('q_'+p.id)===(+std[p.id]||0)&&!val('z_'+p.id)&&!val('i_'+p.id));
   b.textContent=same?'Standart teslim et':'Kaydet';
 }
 function nameTaken(name,exceptId){const n=name.toLocaleLowerCase('tr');return S.customers.some(c=>c.id!==exceptId&&c.name.toLocaleLowerCase('tr')===n)}
@@ -542,7 +578,7 @@ function buildState(w){
   const pn=lines(w.products);const products=(pn.length?pn:['Normal Ekmek']).map((name,i)=>({id:'p'+uid(),name,active:true}));
   const seen=new Set();const customers=[];
   lines(w.customers).forEach(name=>{const k=name.toLocaleLowerCase('tr');if(seen.has(k))return;seen.add(k);customers.push({id:'c'+uid(),name,phone:'',note:'',std:{},daily:false,active:true})});
-  return{v:1,sample:false,settings:{name:w.name||'',phone:w.phone||'',header:'Dağıtım Raporu',startMsg:false},products,customers,shifts:[],activeId:null};
+  return{v:3,sample:false,settings:{name:w.name||'',phone:w.phone||'',header:'Dağıtım Raporu',startMsg:false},products,customers,shifts:[],activeId:null};
 }
 function wzRead(){const f=$('wz_f');if(!f)return;const k=['name','phone','products','customers'][ui.wz.step-1];ui.wz[k]=f.value.trim()}
 
@@ -564,14 +600,15 @@ const A={
     const sh=active(),s=ui.sheet,c=C(s.cid);
     const edit=s.edit?sh.deliveries.find(d=>d.id===s.edit):null;
     const items={};S.products.forEach(p=>{const v=nv('q_'+p.id);if(v)items[p.id]=v});
+    const bayat={};S.products.forEach(p=>{const v=nv('z_'+p.id);if(v)bayat[p.id]=v});
     const iade={};S.products.forEach(p=>{const v=nv('i_'+p.id);if(v)iade[p.id]=v});
     const ce=$('q_cash'),cb=$('cashBox');
     const cash=ce&&cb&&!cb.hidden&&ce.value!==''?Math.max(0,parseInt(ce.value,10)||0):null;
     const note=$('q_note').value.trim();
-    if(!Object.keys(items).length&&!total(iade)&&!cash){err('En az bir ürün adedi, bayat iade ya da tahsilat girin.');return}
+    if(!Object.keys(items).length&&!total(bayat)&&!total(iade)&&!cash){err('En az bir taze, bayat, iade adedi ya da tahsilat girin.');return}
     snap();
-    if(edit)Object.assign(edit,{items,iade,cash,note});
-    else sh.deliveries.push({id:uid(),cid:s.cid,ts:Date.now(),items,iade,cash,note});
+    if(edit)Object.assign(edit,{items,bayat,iade,cash,note});
+    else sh.deliveries.push({id:uid(),cid:s.cid,ts:Date.now(),items,bayat,iade,cash,note});
     delete sh.statuses[s.cid];save();ui.sheet=null;render();
     toast(`${c.name}: ${edit?'güncellendi':'teslim edildi'}`,true);
   },
@@ -676,15 +713,19 @@ window.addEventListener('popstate',()=>{
   render();
 });
 
-/* v1 → v2: tek sayı olan iade, teslimattaki ilk ürüne yazılır; kapanış cümlesi kaldırıldı. */
+/* Eski kayıtları güncel biçime getirir.
+   v1: iade tek sayıydı → teslimattaki ilk ürüne yazılır. v2: bayat alanı yoktu → boş eklenir
+   (v2'de "bayat iade" diye girilen sayılar geri alınan ürün olduğu için iade olarak kalır). */
 function migrate(){
   S.shifts.forEach(s=>s.deliveries.forEach(d=>{
-    if(d.iade&&typeof d.iade==='object')return;
-    const n=+d.iade||0,pid=Object.keys(d.items||{})[0]||(S.products[0]&&S.products[0].id);
-    d.iade=n&&pid?{[pid]:n}:{};
+    if(!(d.iade&&typeof d.iade==='object')){
+      const n=+d.iade||0,pid=Object.keys(d.items||{})[0]||(S.products[0]&&S.products[0].id);
+      d.iade=n&&pid?{[pid]:n}:{};
+    }
+    if(!(d.bayat&&typeof d.bayat==='object'))d.bayat={};
   }));
   delete S.settings.footer;
-  S.v=2;
+  S.v=3;
 }
 
 /* ---- açılış ---- */
