@@ -1,6 +1,6 @@
-# Ekmek Defteri
+# Dağıtım Günlüğü
 
-Bir ekmek fırınının dağıtımcısının günlük teslimatlarını, iadelerini ve nakit tahsilatını kaydettiği; gün sonunda raporu fırın sahibine WhatsApp ile ilettiği uygulama.
+Bir ekmek fırınının dağıtımcısının günlük teslimatlarını, iadelerini ve nakit tahsilatını kaydettiği; gün sonunda raporu rapor adresine WhatsApp ile ilettiği uygulama.
 
 ## Kişiler ve yerler
 
@@ -8,9 +8,9 @@ Bir ekmek fırınının dağıtımcısının günlük teslimatlarını, iadeleri
 Uygulamayı kullanan, aracıyla müşterilere ekmek götüren tek kişi.
 _Avoid_: Şoför, kurye, kullanıcı
 
-**Fırın Sahibi**:
-Gün sonu raporunu WhatsApp'tan alan kişi; uygulamayı kendisi kullanmaz.
-_Avoid_: Patron, yönetici
+**Rapor Adresi**:
+Gün sonu raporunun gönderildiği WhatsApp numarası (genellikle fırın sahibi); telefon rehberinden seçilebilir. Ekranda "Rapor yollanacak adres" diye geçer.
+_Avoid_: Fırın sahibi numarası, alıcı
 
 **Müşteri**:
 Ekmeğin bırakıldığı dükkân (bakkal, market, lokanta vb.); her müşterinin rota sırasında bir yeri vardır.

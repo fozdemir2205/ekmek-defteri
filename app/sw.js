@@ -1,6 +1,6 @@
-// Ekmek Defteri service worker: uygulamayı internetsiz açılabilir tutar.
+// Dağıtım Günlüğü service worker: uygulamayı internetsiz açılabilir tutar.
 // Uygulamada bir değişiklik yayınlarken VERSION değerini artırın; telefonlar yeni sürümü bir sonraki açılışta alır.
-const VERSION = 'v5';
+const VERSION = 'v6';
 const SHELL = `ekmek-shell-${VERSION}`;
 const FONTS = 'ekmek-fonts';
 const SHELL_FILES = [

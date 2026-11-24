@@ -1,6 +1,6 @@
-# Ekmek Defteri
+# Dağıtım Günlüğü
 
-Ekmek dağıtımcısının mesaisini, teslimatlarını, iadelerini ve nakit tahsilatını telefondan takip ettiği, gün sonu raporunu WhatsApp ile fırın sahibine gönderdiği uygulama. Yalnızca Android Chrome için yapıldı.
+Ekmek dağıtımcısının mesaisini, teslimatlarını, iadelerini ve nakit tahsilatını telefondan takip ettiği, gün sonu raporunu WhatsApp ile rapor adresine gönderdiği uygulama. Yalnızca Android Chrome için yapıldı.
 
 Terimlerin tanımları [GLOSSARY.md](GLOSSARY.md) dosyasında. Verilerin neden yalnızca telefonda tutulduğu [docs/adr/0001](docs/adr/0001-veriler-yalnizca-telefonda.md) dosyasında yazıyor.
 
@@ -23,8 +23,8 @@ Uygulama HTTPS üzerinden yayınlanmalıdır, aksi hâlde Android'de kurulum ve 
 
 1. Adresi Android telefonda **Chrome** ile açın.
 2. Sağ üstteki ⋮ menüsünden **Uygulamayı yükle** (bazı telefonlarda **Ana ekrana ekle**) seçeneğine dokunun.
-3. Ekmek Defteri ana ekranda normal bir uygulama gibi görünür. Bir kez açıldıktan sonra internet olmadan da çalışır. İnternet yalnızca WhatsApp'a gönderirken gerekir.
-4. İlk açılışta 3 adımlık kurulum gelir: ad, fırın sahibinin numarası ve müşteriler. Ekmek çeşitleri mesai başlayınca açılan araç yükleme ekranında yazılır; adlar her yüklemede düzeltilebilir.
+3. Dağıtım Günlüğü ana ekranda normal bir uygulama gibi görünür. Bir kez açıldıktan sonra internet olmadan da çalışır. İnternet yalnızca WhatsApp'a gönderirken gerekir.
+4. İlk açılışta 3 adımlık kurulum gelir: ad, rapor yollanacak adres (WhatsApp numarası, rehberden seçilebilir) ve müşteriler. Ekmek çeşitleri mesai başlayınca açılan araç yükleme ekranında yazılır; adlar her yüklemede düzeltilebilir.
 
 ## Güncelleme yayınlarken
 

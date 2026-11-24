@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Ekmek Defteri</title>
+<title>Dağıtım Günlüğü</title>
 <meta name="description" content="Ekmek dağıtımcısı için mesai, teslimat, iade ve nakit takibi.">
 <meta name="theme-color" content="#F5F3EE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#15110D" media="(prefers-color-scheme: dark)">
@@ -37,7 +37,7 @@
 :root{color-scheme:light;padding-top:env(safe-area-inset-top,0px)}
 [hidden]{display:none!important}
 html,body{overscroll-behavior-y:none}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:11px;line-height:1.45;-webkit-tap-highlight-color:transparent}
 button,input,textarea,select{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:3px solid var(--wheat);outline-offset:2px}
@@ -45,46 +45,46 @@ button{cursor:pointer}
 .num{font-variant-numeric:tabular-nums}
 
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:6px 14px}
-.brand{font-family:var(--f-display);font-weight:700;font-size:24px;letter-spacing:.01em;line-height:1;display:flex;align-items:center;gap:10px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:26px;letter-spacing:.01em;line-height:1;display:flex;align-items:center;gap:10px}
 .brand svg{flex:none}
-.top-sub{font-size:14px;color:var(--muted);margin-top:2px}
+.top-sub{font-size:11px;color:var(--muted);margin-top:2px}
 .tbtns{display:flex;gap:8px}
-.ghost{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;min-height:44px}
-.back{background:none;border:0;padding:8px 0;font-size:14px;font-weight:600;color:var(--muted);min-height:44px}
+.ghost{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12px;font-weight:600;min-height:44px}
+.back{background:none;border:0;padding:8px 0;font-size:12px;font-weight:600;color:var(--muted);min-height:44px}
 
-.banner{background:var(--wheat-soft);border-radius:var(--r);padding:10px 14px;font-size:14px;display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
-.banner button{background:none;border:0;font-weight:700;text-decoration:underline;font-size:15px;padding:6px 0;white-space:nowrap}
-.alert{background:var(--warn-soft);color:var(--ink);border-radius:var(--r);padding:12px 14px;font-size:14px;margin-bottom:14px;display:grid;gap:10px}
+.banner{background:var(--wheat-soft);border-radius:var(--r);padding:10px 14px;font-size:12px;display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.banner button{background:none;border:0;font-weight:700;text-decoration:underline;font-size:12px;padding:6px 0;white-space:nowrap}
+.alert{background:var(--warn-soft);color:var(--ink);border-radius:var(--r);padding:12px 14px;font-size:12px;margin-bottom:14px;display:grid;gap:10px}
 .alert b{color:var(--warn)}
 
 .hero{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px 16px;display:grid;gap:6px;margin-bottom:18px}
-.hero h1{font-family:var(--f-display);font-size:28px;line-height:1.05;margin:0;text-wrap:balance}
-.hero p{margin:0;color:var(--muted);font-size:14px}
+.hero h1{font-family:var(--f-display);font-size:32px;line-height:1.05;margin:0;text-wrap:balance}
+.hero p{margin:0;color:var(--muted);font-size:12px}
 
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;display:grid;gap:2px;text-align:left;min-width:0}
-.stat small{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
-.stat b{font-family:var(--f-display);font-size:22px;line-height:1.05;font-variant-numeric:tabular-nums}
+.stat small{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.stat b{font-family:var(--f-display);font-size:24px;line-height:1.05;font-variant-numeric:tabular-nums}
 button.stat{cursor:pointer}
-button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-family:var(--f-body)}
+button.stat b::after{content:" ✎";font-size:12px;color:var(--muted);font-family:var(--f-body)}
 
-.truck{background:var(--sunk);border-radius:var(--r);padding:12px 14px;margin-bottom:16px;display:flex;gap:12px;align-items:center;justify-content:space-between;font-size:14px}
+.truck{background:var(--sunk);border-radius:var(--r);padding:12px 14px;margin-bottom:16px;display:flex;gap:12px;align-items:center;justify-content:space-between;font-size:12px}
 .truck b{font-variant-numeric:tabular-nums}
-.link{background:none;border:0;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px;padding:8px 0;font-size:14px;white-space:nowrap;min-height:44px}
+.link{background:none;border:0;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px;padding:8px 0;font-size:12px;white-space:nowrap;min-height:44px}
 
-.sec{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:22px 0 8px;display:flex;justify-content:space-between;align-items:baseline}
-.search{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:12px 14px;margin-bottom:10px;font-size:14px}
+.sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:22px 0 8px;display:flex;justify-content:space-between;align-items:baseline}
+.search{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:12px 14px;margin-bottom:10px;font-size:13px}
 
 .list{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .crow{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;width:100%;min-height:60px;padding:10px 14px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;border-left:5px solid transparent}
 .crow:last-child{border-bottom:0}
-.crow .ix{font-family:var(--f-display);font-size:17px;color:var(--muted);font-variant-numeric:tabular-nums}
-.crow .nm{font-weight:600;font-size:15px;line-height:1.25;min-width:0}
-.crow .sub{display:block;font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+.crow .ix{font-family:var(--f-display);font-size:15px;color:var(--muted);font-variant-numeric:tabular-nums}
+.crow .nm{font-weight:600;font-size:13px;line-height:1.25;min-width:0}
+.crow .sub{display:block;font-weight:400;font-size:11px;color:var(--muted);margin-top:2px}
 .crow.s-teslim{border-left-color:var(--ok);background:color-mix(in srgb,var(--ok-soft) 55%,transparent)}
 .crow.s-kapali{border-left-color:var(--off)}
 .crow.s-ugranmadi{border-left-color:var(--warn)}
-.chip{font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.chip{font-size:10px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap}
 .c-bekliyor{border:1.5px solid var(--line);color:var(--muted)}
 .c-teslim{background:var(--ok-soft);color:var(--ok)}
 .c-kapali{background:var(--off-soft);color:var(--off)}
@@ -94,34 +94,34 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 .cash-dot{color:var(--wheat);font-weight:700}
 
 .row-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.btn{border-radius:var(--r);border:1px solid var(--line);background:var(--surface);padding:10px 14px;font-weight:600;font-size:15px;min-height:48px}
+.btn{border-radius:var(--r);border:1px solid var(--line);background:var(--surface);padding:10px 14px;font-weight:600;font-size:13px;min-height:48px}
 .btn.wide{flex:1 1 140px}
 .btn.danger{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,var(--line))}
 .big{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;border:0;border-radius:16px;background:var(--wheat);color:var(--wheat-ink);font-family:var(--f-display);font-weight:700;font-size:22px;letter-spacing:.01em;text-decoration:none}
 .big.dark{background:var(--ink);color:var(--bg)}
 .big.wa{background:var(--wa);color:var(--wa-ink)}
-.big small{font-family:var(--f-body);font-size:14px;font-weight:600;opacity:.85}
+.big small{font-family:var(--f-body);font-size:12px;font-weight:600;opacity:.85}
 
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .bar>div{max-width:488px;margin:0 auto}
 
-.empty{padding:20px 16px;color:var(--muted);font-size:14px;text-align:center}
+.empty{padding:20px 16px;color:var(--muted);font-size:12px;text-align:center}
 .hist{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;width:100%;padding:14px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left}
 .hist:last-child{border-bottom:0}
-.hist b{font-size:15px}
-.hist span{font-size:13px;color:var(--muted)}
+.hist b{font-size:13px}
+.hist span{font-size:11px;color:var(--muted)}
 
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;min-width:0}
-.tile small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
-.tile b{font-family:var(--f-display);font-size:22px;line-height:1.1;font-variant-numeric:tabular-nums}
-.tile p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.tile small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.tile b{font-family:var(--f-display);font-size:24px;line-height:1.1;font-variant-numeric:tabular-nums}
+.tile p{margin:2px 0 0;font-size:11px;color:var(--muted)}
 .seg{display:grid;grid-template-columns:1fr 1fr;background:var(--sunk);border-radius:12px;padding:4px;margin-bottom:10px}
-.seg button{border:0;background:transparent;border-radius:9px;padding:8px;font-weight:600;font-size:15px;min-height:44px}
+.seg button{border:0;background:transparent;border-radius:9px;padding:8px;font-weight:600;font-size:12px;min-height:44px}
 .seg button[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .bubble{background:var(--surface);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:14px;margin-bottom:14px}
-.bubble textarea{width:100%;border:0;background:transparent;resize:none;font-family:var(--f-body);font-size:14px;line-height:1.5;min-height:200px;padding:0}
-.hint{font-size:13px;color:var(--muted);margin:6px 0 0}
+.bubble textarea{width:100%;border:0;background:transparent;resize:none;font-family:var(--f-body);font-size:12px;line-height:1.5;min-height:200px;padding:0}
+.hint{font-size:11px;color:var(--muted);margin:6px 0 0}
 
 /* sheet */
 .scrim{position:fixed;inset:0;z-index:40;background:var(--scrim);display:flex;align-items:flex-end}
@@ -130,14 +130,14 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 @media (prefers-reduced-motion:reduce){.sheet{animation:none}}
 .grab{width:44px;height:5px;border-radius:9px;background:var(--line);margin:4px auto 10px}
 .sh-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
-.sh-head h2{font-family:var(--f-display);font-size:24px;line-height:1.05;margin:0;text-wrap:balance}
-.sh-head p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.sh-head h2{font-family:var(--f-display);font-size:28px;line-height:1.05;margin:0;text-wrap:balance}
+.sh-head p{margin:4px 0 0;color:var(--muted);font-size:12px}
 .x{border:0;background:var(--sunk);border-radius:999px;width:44px;height:44px;font-size:22px;flex:none}
 .sh-foot{position:sticky;bottom:0;background:var(--bg);padding-top:10px;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));display:grid;gap:8px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 14px;margin-bottom:12px}
 .step{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
 .step:last-child{border-bottom:0}
-.step label{font-weight:600;font-size:15px;min-width:0}
+.step label{font-weight:600;font-size:13px;min-width:0}
 .stp{display:flex;align-items:center;gap:6px;flex:none}
 .sbtn{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--sunk);font-size:20px;font-weight:600;line-height:1}
 .sbtn.ten{width:auto;padding:0 10px;font-size:14px}
@@ -147,64 +147,72 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 #expRows:empty{display:none}
 .erow{display:grid;grid-template-columns:minmax(0,1fr) 96px 44px;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
 .erow:last-child{border-bottom:0}
-.erow input{width:100%;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:14px}
-.erow input[type=number]{text-align:right;font-family:var(--f-display);font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
+.erow input{width:100%;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:13px}
+.erow input[type=number]{text-align:right;font-family:var(--f-display);font-size:16px;font-weight:700;font-variant-numeric:tabular-nums}
 .kasa{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:8px}
 .kasa div{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);align-items:baseline}
 .kasa div:last-child{border-bottom:0}
-.kasa b{font-family:var(--f-display);font-size:18px;font-variant-numeric:tabular-nums}
+.kasa b{font-family:var(--f-display);font-size:16px;font-variant-numeric:tabular-nums}
 .kasa .net{background:var(--wheat-soft);border-radius:0 0 var(--r) var(--r)}
-.kasa .net b{font-size:22px}
+.kasa .net b{font-size:20px}
 /* Araç yükleme satırı: çeşit adı + adet */
-.lrow{display:grid;gap:8px;padding:12px 0;border-bottom:1px solid var(--line)}
+.lrow{display:grid;grid-template-columns:minmax(0,1fr) 88px;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
 .lrow:last-child{border-bottom:0}
-.lname{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:14px;font-weight:600}
-.lrow .stp{justify-content:flex-start}
+.lname{width:100%;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:13px;font-weight:600}
+/* Sade sayı kutusu (± butonsuz) */
+.qty{width:88px;height:44px;text-align:center;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);font-family:var(--f-display);font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;-moz-appearance:textfield;flex:none}
+.qty::placeholder{font-family:var(--f-body);font-size:11px;font-weight:500;color:var(--muted)}
+.qty::-webkit-outer-spin-button,.qty::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.lrow .qty{width:100%}
+.stock{font-family:var(--f-body);font-size:11px;font-weight:600;color:var(--muted);margin-left:8px;background:var(--sunk);border-radius:999px;padding:2px 8px}
+.phrow{display:flex;gap:8px;align-items:stretch}
+.phrow input{flex:1;min-width:0}
+.btn.pick{min-height:0;white-space:nowrap;padding:8px 12px}
 /* Satış satırı: ürün adı + Taze / Bayat / İade kutuları */
 .prod{padding:12px 0;border-bottom:1px solid var(--line)}
 .prod:last-child{border-bottom:0}
 .pname{font-weight:700;font-size:15px;margin-bottom:8px}
 .tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .tc{display:grid;gap:4px;min-width:0}
-.tc label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:center}
+.tc label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:center}
 .tc.k-taze label{color:var(--ok)}
 .tc.k-bayat label{color:var(--warn)}
-.tc input{width:100%;height:46px;text-align:center;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-display);font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.tc input{width:100%;height:46px;text-align:center;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-display);font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
 .tc.k-taze input{border-color:color-mix(in srgb,var(--ok) 45%,var(--line))}
 .tc.k-bayat input{border-color:color-mix(in srgb,var(--warn) 45%,var(--line))}
 .tc input::-webkit-outer-spin-button,.tc input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .pm{display:grid;grid-template-columns:1fr 1fr;gap:4px}
 .pm button{height:40px;border-radius:10px;border:1px solid var(--line);background:var(--sunk);font-size:20px;font-weight:600;line-height:1}
 .field{display:grid;gap:6px;margin-bottom:12px}
-.field label,.flabel{font-weight:600;font-size:14px}
-.field input[type=text],.field input[type=tel],.field input[type=time],.field input:not([type]),.field textarea,.cashin{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:10px 12px;font-size:14px}
+.field label,.flabel{font-weight:600;font-size:12px}
+.field input[type=text],.field input[type=tel],.field input[type=time],.field input:not([type]),.field textarea,.cashin{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:10px 12px;font-size:13px}
 .field textarea{min-height:150px;line-height:1.5}
-.cashin{font-family:var(--f-display);font-size:22px;font-weight:700}
-.check{display:flex;gap:12px;align-items:center;padding:10px 0;font-size:15px}
+.cashin{font-family:var(--f-display);font-size:20px;font-weight:700}
+.check{display:flex;gap:12px;align-items:center;padding:10px 0;font-size:12px}
 .check input{width:24px;height:24px;accent-color:var(--wheat)}
-.err{color:var(--warn);font-weight:600;font-size:14px;min-height:1px}
+.err{color:var(--warn);font-weight:600;font-size:12px;min-height:1px}
 .pills{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.pills .btn{flex:1 1 120px;min-height:44px;font-size:15px}
+.pills .btn{flex:1 1 120px;min-height:44px;font-size:12px}
 .prev{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:12px}
-.prev div{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);font-size:14px;align-items:center}
+.prev div{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);font-size:12px;align-items:center}
 .prev div:last-child{border-bottom:0}
 
 .set{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:12px}
 .set .field:last-child{margin-bottom:0}
 .prow{display:flex;gap:8px;align-items:center;padding:6px 0}
-.prow input[type=text]{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:14px}
-.prow label{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--muted);white-space:nowrap}
+.prow input[type=text]{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:13px}
+.prow label{display:flex;gap:6px;align-items:center;font-size:11px;color:var(--muted);white-space:nowrap}
 .prow input[type=checkbox]{width:22px;height:22px;accent-color:var(--wheat)}
 .mrow{display:grid;grid-template-columns:1fr auto auto auto;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
 .mrow:last-child{border-bottom:0}
 .mrow .nm{font-weight:600;min-width:0;overflow-wrap:anywhere}
-.mrow .nm small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.mrow .nm small{display:block;font-weight:400;color:var(--muted);font-size:11px}
 .mrow.pasif .nm{color:var(--muted)}
 .ib{width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:var(--sunk);font-size:18px}
 .ib:disabled{opacity:.35}
 
-.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(104px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--toast-bg);color:var(--toast-fg);border-radius:14px;padding:12px 16px;display:flex;gap:16px;align-items:center;font-size:15px;max-width:calc(100% - 32px);width:max-content;box-shadow:0 6px 20px rgba(0,0,0,.25)}
-.toast button{background:none;border:0;color:var(--wheat);font-weight:700;font-size:15px;padding:6px 2px;min-height:40px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(104px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--toast-bg);color:var(--toast-fg);border-radius:14px;padding:12px 16px;display:flex;gap:16px;align-items:center;font-size:12px;max-width:calc(100% - 32px);width:max-content;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.toast button{background:none;border:0;color:var(--wheat);font-weight:700;font-size:12px;padding:6px 2px;min-height:40px}
 .wz-prog{display:flex;gap:6px;margin:6px 0 18px}
 .wz-prog i{flex:1;height:6px;border-radius:9px;background:var(--line)}
 .wz-prog i.on{background:var(--wheat)}
@@ -216,7 +224,7 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 <div id="toast" hidden></div>
 
 <script>
-/* ===== Ekmek Defteri — veriler yalnızca bu telefonda tutulur (bkz. docs/adr/0001). ===== */
+/* ===== Dağıtım Günlüğü — veriler yalnızca bu telefonda tutulur (bkz. docs/adr/0001). ===== */
 const KEY='ekmekDefteri.v1';
 const $=id=>document.getElementById(id);
 const uid=()=>Math.random().toString(36).slice(2,10);
@@ -267,11 +275,14 @@ function groups(sh){
 function cashOf(list){return list.reduce((s,d)=>s+(d.cash>0?d.cash:0),0)}
 
 /* ---- rapor metni ---- */
+/* Rapor sırası: başlık → araç yüklemeleri → teslimatlar (her teslimat ayrı satır, saat sırasıyla)
+   → uğranmayanlar → verilen / iade / araçta kalan → en sonda masraflar ve kasaya teslim edilecek tutar. */
 function report(sh,short){
   const st=S.settings,L=[];
   L.push(`🍞 *${st.header||'Dağıtım Raporu'} – ${dmy(sh.start)}*`);
   L.push(`👤 ${st.name||'Dağıtımcı'} | ⏰ Başlangıç ${hm(sh.start)}`);
   const G=groups(sh);
+  const dels=sh.deliveries.slice().sort((a,b)=>a.ts-b.ts);
   const missing=sh.cids.filter(cid=>statusOf(sh,cid)!=='teslim');
   const taze=sumItems(sh.deliveries.map(d=>d.items));
   const bayat=bayatSum(sh.deliveries);
@@ -279,17 +290,24 @@ function report(sh,short){
   const cash=cashOf(sh.deliveries);
   const cashN=G.filter(g=>cashOf(g.list)>0).length;
   const noPay=G.filter(g=>C(g.cid).daily&&cashOf(g.list)===0);
+
+  // 1) Araç yüklemeleri
+  L.push('',`🚚 *Araç yüklemeleri* (${sh.loads.length})`);
+  if(!sh.loads.length)L.push('Yükleme girilmedi');
+  sh.loads.slice().sort((a,b)=>a.ts-b.ts).forEach((l,i)=>L.push(`${i+1}. ${hm(l.ts)} – ${itemsText(l.items,' · ')}`));
+  if(sh.loads.length>1)L.push('Toplam yüklenen: '+itemsText(loaded(sh),' · '));
+
+  // 2) Teslimatlar
   if(!short){
     L.push('','✅ *Teslimatlar*');
-    if(!G.length)L.push('Teslimat yok.');
-    G.forEach((g,i)=>{
-      const c=C(g.cid),ca=cashOf(g.list);
-      const txt=lineText(sumItems(g.list.map(d=>d.items)),bayatSum(g.list),iadeSum(g.list));
-      let line=`${i+1}. ${hm(g.list[0].ts)} ${c.name} – ${txt||'Sadece tahsilat'}`;
-      if(ca>0)line+=` | 💵 ${tl(ca)}`;else if(c.daily)line+=' | ⚠️ Tahsilat yok';
-      if(g.list.length>1)line+=` (${g.list.length} sefer)`;
-      const notes=g.list.map(d=>d.note).filter(Boolean);
-      if(notes.length)line+=` – _${notes.join('; ')}_`;
+    if(!dels.length)L.push('Teslimat yok.');
+    const seen={};
+    dels.forEach((d,i)=>{
+      const c=C(d.cid);seen[d.cid]=(seen[d.cid]||0)+1;
+      const custCash=cashOf(sh.deliveries.filter(x=>x.cid===d.cid));
+      let line=`${i+1}. ${hm(d.ts)} ${c.name}${seen[d.cid]>1?` (${seen[d.cid]}. teslimat)`:''} – ${lineText(d.items||{},d.bayat||{},d.iade||{})||'Sadece tahsilat'}`;
+      if(d.cash>0)line+=` | 💵 ${tl(d.cash)}`;else if(c.daily&&custCash===0)line+=' | ⚠️ Tahsilat yok';
+      if(d.note)line+=` – _${d.note}_`;
       L.push(line);
     });
     if(missing.length){
@@ -297,34 +315,29 @@ function report(sh,short){
       missing.forEach(cid=>L.push(`- ${C(cid).name} (${ST[statusOf(sh,cid)]})`));
     }
   }else{
-    L.push(`Teslim edilen: ${G.length}/${sh.cids.length} müşteri`);
+    L.push('',`✅ Teslim edilen: ${G.length}/${sh.cids.length} müşteri (${dels.length} teslimat)`);
     if(missing.length)L.push(`Uğranmadı / Kapalı: ${missing.length} müşteri`);
   }
-  // Verilen: ürün başına taze ve bayat
+
+  // 3) Toplamlar
   L.push('',`📦 *Verilen* (taze ${total(taze)}, bayat ${total(bayat)})`);
   const given=S.products.filter(p=>taze[p.id]||bayat[p.id]).map(p=>{
     const parts=[];if(taze[p.id])parts.push(taze[p.id]+' taze');if(bayat[p.id])parts.push(bayat[p.id]+' bayat');
     return`${p.name}: ${parts.join(' · ')}`;});
   L.push(...(given.length?given:['Teslimat yok']));
-  // İade: çeşit sayısı, toplam ve her çeşidin adedi
   const iadeP=S.products.filter(p=>iade[p.id]);
   L.push('',`↩️ *İade* (${iadeP.length} çeşit, toplam ${total(iade)})`);
   L.push(...(iadeP.length?iadeP.map(p=>`${p.name}: ${iade[p.id]}`):['İade alınmadı']));
-  // Araç yüklemeleri: her yükleme saatiyle ayrı satır
-  L.push('',`🚚 *Araç yüklemeleri* (${sh.loads.length})`);
-  if(!sh.loads.length)L.push('Yükleme girilmedi');
-  sh.loads.slice().sort((a,b)=>a.ts-b.ts).forEach((l,i)=>L.push(`${i+1}. ${hm(l.ts)} – ${itemsText(l.items,' · ')}`));
-  if(sh.loads.length>1)L.push('Toplam yüklenen: '+itemsText(loaded(sh),' · '));
-  if(sh.loads.length)L.push('Araçta kalan: '+(itemsText(sh.leftover||remaining(sh),' · ')||'0'));
-  // Kasa: toplanan nakit − masraflar = kasaya teslim edilecek net tutar
+  if(sh.loads.length)L.push('','🚚 Araçta kalan: '+(itemsText(sh.leftover||remaining(sh),' · ')||'0'));
+
+  // 4) En sonda: masraflar ve kasaya teslim edilecek tutar
   const ex=sh.expenses||[],exT=ex.reduce((s,e)=>s+(e.amount||0),0);
   L.push('','💰 *Kasa*');
   L.push(`Toplanan nakit: ${tl(cash)} (${cashN} müşteri)`);
-  if(short&&noPay.length)L.push(`⚠️ Tahsilat yok: ${noPay.map(g=>C(g.cid).name).join(', ')}`);
+  if(noPay.length)L.push(`⚠️ Tahsilat yok: ${noPay.map(g=>C(g.cid).name).join(', ')}`);
   L.push(`Masraflar: ${tl(exT)}`);
   ex.forEach(e=>L.push(`- ${e.desc}: ${tl(e.amount)}`));
-  L.push(`*Kasaya teslim (net): ${tl(cash-exT)}*`);
-  while(L[L.length-1]==='')L.pop();
+  L.push(`*Kasaya teslim (kalan tutar): ${tl(cash-exT)}*`);
   return L.join('\n');
 }
 function waNum(p){let d=String(p||'').replace(/\D/g,'');if(!d)return'';if(d.startsWith('00'))d=d.slice(2);if(d.startsWith('0'))d='90'+d.slice(1);if(d.length===10&&d[0]==='5')d='90'+d;return d}
@@ -333,7 +346,7 @@ function waLink(text){return`https://wa.me/${waNum(S.settings.phone)}?text=${enc
 /* ---- parçalar ---- */
 const logo=`<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 17c0-6 5.4-10 12-10s12 4 12 10v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" fill="var(--wheat)"/><path d="M11 12l2 5M16 11v6M21 12l-2 5" stroke="var(--wheat-ink)" stroke-width="2" stroke-linecap="round" fill="none"/></svg>`;
 function topbar(sub,extra=''){
-  return`<header class="top"><div><div class="brand">${logo}Ekmek Defteri</div>${sub?`<div class="top-sub">${sub}</div>`:''}</div>
+  return`<header class="top"><div><div class="brand">${logo}Dağıtım Günlüğü</div>${sub?`<div class="top-sub">${sub}</div>`:''}</div>
   <div class="tbtns">${extra}<button class="ghost" data-act="go" data-v="settings">Ayarlar</button></div></header>`;
 }
 function backbar(label='Ana ekran'){return`<button class="back" data-act="go" data-v="home">← ${label}</button>`}
@@ -341,9 +354,12 @@ function sampleBanner(){return S.sample?`<div class="banner"><span>Örnek verile
 /* Araç yükleme satırı: çeşit adı (düzenlenebilir) + adet. pid boşsa yeni çeşittir. */
 let keySeq=0;const newKey=()=>'n'+(++keySeq);
 function loadRow(key,name,pid){
-  return`<div class="lrow" data-key="${key}" data-pid="${pid}"><input type="text" class="lname" id="ln_${key}" value="${esc(name)}" placeholder="Çeşit adı (örn. Normal Ekmek)" aria-label="Çeşit adı">
-  <div class="stp"><button type="button" class="sbtn" data-act="dec" data-for="l_${key}" aria-label="Adet bir azalt">−</button><input id="l_${key}" type="number" inputmode="numeric" min="0" value="0" aria-label="${esc(name||'Yeni çeşit')} adedi"><button type="button" class="sbtn" data-act="inc" data-for="l_${key}" aria-label="Adet bir artır">+</button><button type="button" class="sbtn ten" data-act="inc10" data-for="l_${key}" aria-label="Adet on artır">+10</button></div></div>`;
+  return`<div class="lrow" data-key="${key}" data-pid="${pid}"><input type="text" class="lname" id="ln_${key}" value="${esc(name)}" placeholder="Çeşit adı (örn. Kepek Ekmeği)" aria-label="Çeşit adı">
+  <input class="qty" id="l_${key}" type="number" inputmode="numeric" min="0" value="" placeholder="Adet" aria-label="${esc(name||'Yeni çeşit')} adedi"></div>`;
 }
+/* Telefon rehberinden kişi seçme (Android Chrome'daki Contact Picker). Desteklenmeyen tarayıcıda buton çıkmaz. */
+const canPick=()=>'contacts' in navigator&&'ContactsManager' in window;
+function pickBtn(forId){return canPick()?`<button type="button" class="btn pick" data-act="pickcontact" data-for="${forId}">Rehberden seç</button>`:''}
 /* Masraf satırı: açıklama + tutar (₺) + sil */
 function expRow(key,desc,amount){
   return`<div class="erow" data-key="${key}"><input type="text" id="ed_${key}" value="${esc(desc||'')}" placeholder="Masraf (örn. yakıt)" aria-label="Masraf açıklaması">
@@ -359,18 +375,14 @@ function updKasa(){
   box.innerHTML=`<div><span>Toplanan nakit</span><b>${tl(cash)}</b></div><div><span>Masraflar</span><b>− ${tl(ex)}</b></div><div class="net"><span>Kasaya teslim (net)</span><b>${tl(cash-ex)}</b></div>`;
 }
 /* Bir ürünün satış satırı: 1. kutu taze verilen, 2. kutu bayat verilen, 3. kutu iade alınan (taze ya da bayat) */
-function saleRow(p,t,b,i){
+/* Sayı kutuları boş başlar (0 yazılmaz); boş kutu 0 sayılır. avail: araçta kalan adet (bilgi için) */
+function saleRow(p,t,b,i,avail){
   const col=(pre,kind,label,val)=>`<div class="tc k-${kind}"><label for="${pre}${p.id}">${label}</label>
-    <input id="${pre}${p.id}" type="number" inputmode="numeric" min="0" value="${val||0}" aria-label="${esc(p.name)} ${label}">
-    <div class="pm"><button type="button" data-act="dec" data-for="${pre}${p.id}" aria-label="${esc(p.name)} ${label} azalt">−</button><button type="button" data-act="inc" data-for="${pre}${p.id}" aria-label="${esc(p.name)} ${label} artır">+</button></div></div>`;
-  return`<div class="prod"><div class="pname">${esc(p.name)}</div><div class="tri">${col('q_','taze','Taze',t)}${col('z_','bayat','Bayat',b)}${col('i_','iade','İade',i)}</div></div>`;
+    <input id="${pre}${p.id}" type="number" inputmode="numeric" min="0" value="${val||''}" aria-label="${esc(p.name)} ${label}"></div>`;
+  return`<div class="prod"><div class="pname">${esc(p.name)}${avail!=null?`<span class="stock">araçta ${avail}</span>`:''}</div><div class="tri">${col('q_','taze','Taze',t)}${col('z_','bayat','Bayat',b)}${col('i_','iade','İade',i)}</div></div>`;
 }
 function stepper(id,label,val){
-  return`<div class="step"><label for="${id}">${esc(label)}</label><div class="stp">
-  <button type="button" class="sbtn" data-act="dec" data-for="${id}" aria-label="${esc(label)} bir azalt">−</button>
-  <input id="${id}" type="number" inputmode="numeric" min="0" value="${val||0}">
-  <button type="button" class="sbtn" data-act="inc" data-for="${id}" aria-label="${esc(label)} bir artır">+</button>
-  <button type="button" class="sbtn ten" data-act="inc10" data-for="${id}" aria-label="${esc(label)} on artır">+10</button></div></div>`;
+  return`<div class="step"><label for="${id}">${esc(label)}</label><input class="qty" id="${id}" type="number" inputmode="numeric" min="0" value="${val||''}" aria-label="${esc(label)}"></div>`;
 }
 const nv=id=>{const el=$(id);return el?Math.max(0,parseInt(el.value,10)||0):0};
 
@@ -412,7 +424,7 @@ function vShift(){
   return`${topbar('Mesai · '+dmy(sh.start))}
   ${sampleBanner()}
   ${stale?`<div class="alert"><span><b>Bu mesai 14 saatten uzun süredir açık.</b> Dünden açık kalmış olabilir.</span><button class="btn" data-act="finish">Mesaiyi bitir</button></div>`:''}
-  ${S.settings.startMsg&&!sh.startSent?`<div class="banner"><span>Fırın sahibine "mesai başladı" mesajı</span><a class="link" href="${waLink(`🍞 ${S.settings.name||'Dağıtımcı'}: mesai başladı ${hm(sh.start)}`)}" target="_blank" rel="noopener" data-act="startsent">Gönder</a></div>`:''}
+  ${S.settings.startMsg&&!sh.startSent?`<div class="banner"><span>Rapor adresine "mesai başladı" mesajı</span><a class="link" href="${waLink(`🍞 ${S.settings.name||'Dağıtımcı'}: mesai başladı ${hm(sh.start)}`)}" target="_blank" rel="noopener" data-act="startsent">Gönder</a></div>`:''}
   <div class="stats">
     <button class="stat" data-act="sttime"><small>Başlangıç</small><b>${hm(sh.start)}</b></button>
     <div class="stat"><small>Teslim</small><b class="num">${del}/${sh.cids.length}</b></div>
@@ -467,7 +479,7 @@ function vSettings(){
   <div class="sec">Rapor</div>
   <div class="set">
     <div class="field"><label for="s_name">Adınız (raporda görünür)</label><input id="s_name" type="text" data-set="name" value="${esc(st.name)}"></div>
-    <div class="field"><label for="s_phone">Fırın sahibinin WhatsApp numarası</label><input id="s_phone" type="tel" inputmode="tel" placeholder="0532 123 45 67" data-set="phone" value="${esc(st.phone)}"><p class="hint">Boş bırakırsanız WhatsApp'ta kişiyi veya grubu siz seçersiniz.</p></div>
+    <div class="field"><label for="s_phone">Rapor yollanacak adres (WhatsApp numarası)</label><div class="phrow"><input id="s_phone" type="tel" inputmode="tel" placeholder="0532 123 45 67" data-set="phone" value="${esc(st.phone)}">${pickBtn('s_phone')}</div><p class="hint">Boş bırakırsanız WhatsApp'ta kişiyi veya grubu siz seçersiniz.</p></div>
     <div class="field"><label for="s_header">Rapor başlığı</label><input id="s_header" type="text" data-set="header" value="${esc(st.header)}"></div>
     <label class="check"><input id="s_startmsg" type="checkbox" data-set="startMsg" ${st.startMsg?'checked':''}> Mesai başlayınca "başladı" mesajı öner</label>
   </div>
@@ -489,9 +501,9 @@ function vWizard(){
   const w=ui.wz,steps=3;
   let body='';
   if(w.step===1)body=`<div class="field"><label for="wz_f">Adınız</label><input id="wz_f" type="text" value="${esc(w.name)}" placeholder="Örn. Ahmet"><p class="hint">Raporun başında görünür.</p></div>`;
-  if(w.step===2)body=`<div class="field"><label for="wz_f">Fırın sahibinin WhatsApp numarası</label><input id="wz_f" type="tel" inputmode="tel" value="${esc(w.phone)}" placeholder="0532 123 45 67"><p class="hint">Rapor bu numaraya gider. Bir gruba gönderecekseniz boş bırakın; WhatsApp'ta grubu siz seçersiniz.</p></div>`;
+  if(w.step===2)body=`<div class="field"><label for="wz_f">Rapor yollanacak adres (WhatsApp numarası)</label><div class="phrow"><input id="wz_f" type="tel" inputmode="tel" value="${esc(w.phone)}" placeholder="0532 123 45 67">${pickBtn('wz_f')}</div><p class="hint">Rapor bu numaraya gider. Bir gruba gönderecekseniz boş bırakın; WhatsApp'ta grubu siz seçersiniz.</p></div>`;
   if(w.step===3)body=`<div class="field"><label for="wz_f">Müşteriler (her satıra bir müşteri, gidiş sırasıyla)</label><textarea id="wz_f" placeholder="Yıldız Market&#10;Çınar Bakkal&#10;Güneş Lokanta">${esc(w.customers)}</textarea><p class="hint">Ekmek çeşitlerini her mesaide araç yüklemesinde yazarsınız. Standart adet ve günlük tahsilat bilgisini sonra Ayarlar'dan eklersiniz.</p></div>`;
-  return`<header class="top"><div class="brand">${logo}Ekmek Defteri</div><button class="link" data-act="wzdone">Kurulumu atla</button></header>
+  return`<header class="top"><div class="brand">${logo}Dağıtım Günlüğü</div><button class="link" data-act="wzdone">Kurulumu atla</button></header>
   <div class="wz-prog">${Array.from({length:steps},(_,i)=>`<i class="${i<w.step?'on':''}"></i>`).join('')}</div>
   <section class="hero"><h1>${['Hoş geldiniz','Rapor kime gidecek?','Hangi dükkânlara gidiyorsunuz?'][w.step-1]}</h1><p>Adım ${w.step}/${steps}</p></section>
   ${body}
@@ -513,14 +525,19 @@ function vSheet(){
     let body='';
     if(!showForm){
       body+=`<div class="prev">${mine.map(d=>`<div><span><b class="num">${hm(d.ts)}</b> · ${lineText(d.items,d.bayat||{},d.iade||{})||'—'}${d.cash?` · ${tl(d.cash)}`:''}${d.note?`<br><small>${esc(d.note)}</small>`:''}</span><button class="link" data-act="editdel" data-cid="${s.cid}" data-id="${d.id}">Düzenle</button></div>`).join('')}</div>`;
-      return sheetWrap(c.name,`${ST[st]}${c.note?' · '+esc(c.note):''}`,body,`<button class="big" data-act="extra" data-id="${s.cid}">+ Ek teslimat</button>`);
+      return sheetWrap(c.name,`${ST[st]} · ${mine.length} teslimat${c.note?' · '+esc(c.note):''}`,body,`<button class="big" data-act="extra" data-id="${s.cid}">+ Tekrar ekmek ver</button>`);
     }
     const base=edit?edit.items:(mine.length?{}:(c.std||{}));
-    const prods=S.products.filter(p=>p.active||(edit&&(edit.items[p.id]||(edit.bayat||{})[p.id]||(edit.iade||{})[p.id])));
-    if(!prods.length)return sheetWrap(c.name,'',`<div class="alert"><span><b>Henüz ekmek çeşidi yok.</b> Önce araç yüklemesinde çeşitleri yazın.</span></div>`,`<button class="big" data-act="load">Araç yüklemesine git</button>`);
+    // Yalnızca bu mesaide araca yüklenmiş ve araçta hâlâ bulunan çeşitler gösterilir.
+    // Düzenlenen teslimattaki adetler araçtaki sayıya geri eklenir; o teslimatta geçen çeşit her zaman görünür.
+    const rem=remaining(sh),ld=loaded(sh);
+    const inEdit=p=>!!(edit&&(edit.items[p.id]||(edit.bayat||{})[p.id]||(edit.iade||{})[p.id]));
+    const avail=p=>Math.max(0,(rem[p.id]||0)+(edit?((edit.items[p.id]||0)+((edit.bayat||{})[p.id]||0)-((edit.iade||{})[p.id]||0)):0));
+    const prods=S.products.filter(p=>inEdit(p)||((ld[p.id]||0)>0&&avail(p)>0));
+    if(!prods.length)return sheetWrap(c.name,'',`<div class="alert"><span><b>${sh.loads.length?'Araçta ekmek kalmadı.':'Henüz araç yüklemesi yok.'}</b> ${sh.loads.length?'Yeni bir yükleme ekleyin.':'Önce araç yüklemesinde çeşitleri ve adetleri yazın.'}</span></div>`,`<button class="big" data-act="load">Araç yüklemesine git</button>`);
     if(!edit&&!mine.length)body+=`<div class="pills"><button class="btn" data-act="setst" data-cid="${s.cid}" data-s="kapali" ${st==='kapali'?'aria-pressed="true"':''}>Kapalıydı</button><button class="btn" data-act="setst" data-cid="${s.cid}" data-s="ugranmadi">Uğranmadı</button>${st!=='bekliyor'?`<button class="btn" data-act="clrst" data-cid="${s.cid}">Bekliyor'a al</button>`:''}</div>`;
     body+=`<div id="custForm" data-std='${esc(JSON.stringify(edit||mine.length?{}:(c.std||{})))}'>`;
-    body+=`<div class="card">${prods.map(p=>saleRow(p,base[p.id],edit?(edit.bayat||{})[p.id]:0,edit?(edit.iade||{})[p.id]:0)).join('')}</div>`;
+    body+=`<div class="card">${prods.map(p=>saleRow(p,base[p.id],edit?(edit.bayat||{})[p.id]:0,edit?(edit.iade||{})[p.id]:0,avail(p))).join('')}</div>`;
     const cashVal=edit&&edit.cash!=null?edit.cash:'';
     const cashOpen=c.daily||(edit&&edit.cash>0);
     body+=`<div id="cashBox" class="field" ${cashOpen?'':'hidden'}><label for="q_cash">Alınan nakit (₺)</label><input id="q_cash" class="cashin" type="number" inputmode="numeric" min="0" step="1" value="${cashVal}" placeholder="0">${c.daily?'<p class="hint">Boş kalırsa raporda "⚠️ Tahsilat yok" yazar.</p>':''}</div>`;
@@ -528,7 +545,7 @@ function vSheet(){
     body+=`<div class="field"><label for="q_note">Not (isteğe bağlı)</label><input id="q_note" type="text" value="${esc(edit?edit.note:'')}" placeholder="Örn. kapıya bırakıldı"></div>`;
     body+=`<p class="err" id="q_err"></p></div>`;
     if(edit)body+=`<button class="btn danger" style="width:100%;margin-bottom:8px" data-act="deldel" data-id="${edit.id}">Bu teslimatı sil</button>`;
-    const sub=(mine.length&&!edit?'Ek teslimat · ':'')+(c.note?esc(c.note):(c.daily?'💵 Günlük tahsilatlı müşteri':''));
+    const sub=[mine.length&&!edit?`${mine.length+1}. teslimat`:'',c.note?esc(c.note):(c.daily?'💵 Günlük tahsilatlı müşteri':'')].filter(Boolean).join(' · ');
     return sheetWrap(c.name,sub,body,`<button class="big" id="saveBtn" data-act="savedel">Kaydet</button>`);
   }
   if(s.t==='load'){
@@ -565,7 +582,7 @@ function vSheet(){
     const ex=(sh.expenses||[]);
     body+=`<div class="flabel" style="margin-top:4px">Masraflar</div><p class="hint" style="margin:0 0 8px">Gün içinde nakitten yaptığınız harcamalar. Toplanan paradan düşülür.</p>
     <div class="card" id="expRows">${(ex.length?ex:[]).map(e=>expRow(newKey(),e.desc,e.amount)).join('')}</div>
-    <div class="pills"><button class="btn" data-act="addexp" data-d="Yakıt">+ Yakıt</button><button class="btn" data-act="addexp" data-d="Yemek">+ Yemek</button><button class="btn" data-act="addexp" data-d="">+ Diğer</button></div>
+    <button class="btn" style="width:100%;margin-bottom:12px" data-act="addexp" data-d="">+ Masraf ekle</button>
     <div class="kasa" id="kasaBox"></div><p class="err" id="q_err"></p>`;
     return sheetWrap('Mesaiyi bitir','Masrafları girin ve onaylayın',body,`<button class="big dark" data-act="dofinish">Evet, mesaiyi bitir</button><button class="btn" data-act="close">Vazgeç</button>`);
   }
@@ -721,6 +738,17 @@ const A={
     save();ui.sheet=null;render();toast(`${add} müşteri eklendi${dup?`, ${dup} tanesi zaten vardı`:''}`)},
   addprod:()=>{const v=$('newprod').value.trim();if(!v)return;S.products.push({id:'p'+uid(),name:v,active:true});save();render();toast(v+' eklendi')},
   finish:()=>openSheet({t:'finish'}),
+  pickcontact:d=>{
+    let p;try{p=navigator.contacts.select(['name','tel'],{multiple:false})}catch(e){toast('Rehber açılamadı');return}
+    p.then(list=>{
+      if(!list||!list.length)return;
+      const tel=(list[0].tel||[]).find(Boolean),name=(list[0].name||[]).find(Boolean);
+      if(!tel){toast((name||'Seçilen kişi')+': telefon numarası yok');return}
+      const el=$(d.for);if(!el)return;el.value=tel.trim();
+      if(el.dataset.set){S.settings.phone=el.value;save()}
+      toast((name?name+' · ':'')+el.value+' seçildi');
+    }).catch(()=>toast('Rehber açılamadı'));
+  },
   addexp:d=>{const k=newKey();$('expRows').insertAdjacentHTML('beforeend',expRow(k,d.d,''));(d.d?$('ea_'+k):$('ed_'+k)).focus();updKasa()},
   delexp:d=>{const r=document.querySelector(`#expRows .erow[data-key="${d.key}"]`);if(r)r.remove();updKasa()},
   dofinish:()=>{
@@ -749,7 +777,7 @@ const A={
     let t=$('r_txt').value.trim().replace(/^EKMEK-DEFTERI-YEDEK\s*/,'');
     try{const o=JSON.parse(t);if(!o||!Array.isArray(o.products)||!Array.isArray(o.customers)||!Array.isArray(o.shifts))throw 0;
       S=o;migrate();save();ui.sheet=null;ui.view='home';render();toast('Yedek yüklendi')}
-    catch(e){err('Bu metin geçerli bir Ekmek Defteri yedeği değil. Yedeğin tamamını yapıştırdığınızdan emin olun.')}
+    catch(e){err('Bu metin geçerli bir Dağıtım Günlüğü yedeği değil. Yedeğin tamamını yapıştırdığınızdan emin olun.')}
   },
   askreset:()=>openSheet({t:'reset'}),
   doreset:()=>{ui.sheet=null;ui.wz={step:1,name:'',phone:'',customers:''};ui.view='wizard';render();window.scrollTo(0,0)},

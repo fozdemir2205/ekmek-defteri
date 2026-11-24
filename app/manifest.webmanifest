@@ -1,6 +1,6 @@
 {
-  "name": "Ekmek Defteri",
-  "short_name": "Ekmek Defteri",
+  "name": "Dağıtım Günlüğü",
+  "short_name": "Dağıtım Günlüğü",
   "description": "Ekmek dağıtımcısı için mesai, teslimat, iade ve nakit takibi.",
   "lang": "tr",
   "id": "./",
