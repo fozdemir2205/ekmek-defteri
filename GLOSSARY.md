@@ -37,9 +37,9 @@ _Avoid_: Dağıtım, sevkiyat, sipariş
 **Ek Teslimat**:
 Aynı mesaide aynı müşteriye yapılan ikinci veya sonraki teslimat.
 
-**Ürün**:
-Dağıtılan, adetle sayılan bir fırın ürünü (Normal Ekmek, Tam Buğday, Pide gibi).
-_Avoid_: Mal, kalem
+**Çeşit**:
+Dağıtılan, adetle sayılan bir fırın ürünü (Normal Ekmek, Tam Buğday, Pide gibi); adı araç yüklemesinde belirlenir.
+_Avoid_: Ürün, mal, kalem
 
 **Standart Adet**:
 Bir müşterinin bir üründen her gün olağan olarak aldığı miktar.
@@ -58,7 +58,7 @@ Bir teslimatta müşteriden geri alınan ürün (taze ya da bayat olabilir); her
 _Avoid_: Bayat iade, geri dönüş, fire
 
 **Yükleme**:
-Mesai başında veya gün içinde fırından araca konan ürün adedi.
+Mesai başında veya gün içinde fırından araca bir seferde konan çeşitler ve adetleri; her yükleme raporda saatiyle ayrı görünür.
 _Avoid_: Stok, çıkış
 
 **Araçta Kalan**:

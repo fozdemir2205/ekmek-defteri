@@ -37,7 +37,7 @@
 :root{color-scheme:light;padding-top:env(safe-area-inset-top,0px)}
 [hidden]{display:none!important}
 html,body{overscroll-behavior-y:none}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.45;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.45;-webkit-tap-highlight-color:transparent}
 button,input,textarea,select{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:3px solid var(--wheat);outline-offset:2px}
@@ -45,46 +45,46 @@ button{cursor:pointer}
 .num{font-variant-numeric:tabular-nums}
 
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:6px 14px}
-.brand{font-family:var(--f-display);font-weight:700;font-size:28px;letter-spacing:.01em;line-height:1;display:flex;align-items:center;gap:10px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:24px;letter-spacing:.01em;line-height:1;display:flex;align-items:center;gap:10px}
 .brand svg{flex:none}
 .top-sub{font-size:14px;color:var(--muted);margin-top:2px}
 .tbtns{display:flex;gap:8px}
-.ghost{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:15px;font-weight:600;min-height:44px}
+.ghost{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;min-height:44px}
 .back{background:none;border:0;padding:8px 0;font-size:16px;font-weight:600;color:var(--muted);min-height:44px}
 
-.banner{background:var(--wheat-soft);border-radius:var(--r);padding:12px 14px;font-size:15px;display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.banner{background:var(--wheat-soft);border-radius:var(--r);padding:10px 14px;font-size:14px;display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
 .banner button{background:none;border:0;font-weight:700;text-decoration:underline;font-size:15px;padding:6px 0;white-space:nowrap}
-.alert{background:var(--warn-soft);color:var(--ink);border-radius:var(--r);padding:12px 14px;font-size:16px;margin-bottom:14px;display:grid;gap:10px}
+.alert{background:var(--warn-soft);color:var(--ink);border-radius:var(--r);padding:12px 14px;font-size:14px;margin-bottom:14px;display:grid;gap:10px}
 .alert b{color:var(--warn)}
 
-.hero{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px 18px;display:grid;gap:6px;margin-bottom:18px}
-.hero h1{font-family:var(--f-display);font-size:34px;line-height:1.05;margin:0;text-wrap:balance}
-.hero p{margin:0;color:var(--muted);font-size:16px}
+.hero{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px 16px;display:grid;gap:6px;margin-bottom:18px}
+.hero h1{font-family:var(--f-display);font-size:28px;line-height:1.05;margin:0;text-wrap:balance}
+.hero p{margin:0;color:var(--muted);font-size:14px}
 
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;display:grid;gap:2px;text-align:left;min-width:0}
 .stat small{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
-.stat b{font-family:var(--f-display);font-size:26px;line-height:1.05;font-variant-numeric:tabular-nums}
+.stat b{font-family:var(--f-display);font-size:22px;line-height:1.05;font-variant-numeric:tabular-nums}
 button.stat{cursor:pointer}
 button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-family:var(--f-body)}
 
-.truck{background:var(--sunk);border-radius:var(--r);padding:12px 14px;margin-bottom:16px;display:flex;gap:12px;align-items:center;justify-content:space-between;font-size:15px}
+.truck{background:var(--sunk);border-radius:var(--r);padding:12px 14px;margin-bottom:16px;display:flex;gap:12px;align-items:center;justify-content:space-between;font-size:14px}
 .truck b{font-variant-numeric:tabular-nums}
-.link{background:none;border:0;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px;padding:8px 0;font-size:15px;white-space:nowrap;min-height:44px}
+.link{background:none;border:0;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px;padding:8px 0;font-size:14px;white-space:nowrap;min-height:44px}
 
 .sec{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:22px 0 8px;display:flex;justify-content:space-between;align-items:baseline}
-.search{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:12px 14px;margin-bottom:10px;font-size:17px}
+.search{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:12px 14px;margin-bottom:10px;font-size:16px}
 
 .list{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.crow{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;width:100%;min-height:68px;padding:12px 14px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;border-left:5px solid transparent}
+.crow{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;width:100%;min-height:60px;padding:10px 14px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;border-left:5px solid transparent}
 .crow:last-child{border-bottom:0}
-.crow .ix{font-family:var(--f-display);font-size:20px;color:var(--muted);font-variant-numeric:tabular-nums}
-.crow .nm{font-weight:600;font-size:18px;line-height:1.25;min-width:0}
-.crow .sub{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+.crow .ix{font-family:var(--f-display);font-size:17px;color:var(--muted);font-variant-numeric:tabular-nums}
+.crow .nm{font-weight:600;font-size:16px;line-height:1.25;min-width:0}
+.crow .sub{display:block;font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
 .crow.s-teslim{border-left-color:var(--ok);background:color-mix(in srgb,var(--ok-soft) 55%,transparent)}
 .crow.s-kapali{border-left-color:var(--off)}
 .crow.s-ugranmadi{border-left-color:var(--warn)}
-.chip{font-size:13px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.chip{font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap}
 .c-bekliyor{border:1.5px solid var(--line);color:var(--muted)}
 .c-teslim{background:var(--ok-soft);color:var(--ok)}
 .c-kapali{background:var(--off-soft);color:var(--off)}
@@ -94,10 +94,10 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 .cash-dot{color:var(--wheat);font-weight:700}
 
 .row-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.btn{border-radius:var(--r);border:1px solid var(--line);background:var(--surface);padding:12px 16px;font-weight:600;font-size:17px;min-height:52px}
+.btn{border-radius:var(--r);border:1px solid var(--line);background:var(--surface);padding:10px 14px;font-weight:600;font-size:15px;min-height:48px}
 .btn.wide{flex:1 1 140px}
 .btn.danger{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,var(--line))}
-.big{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:66px;border:0;border-radius:18px;background:var(--wheat);color:var(--wheat-ink);font-family:var(--f-display);font-weight:700;font-size:26px;letter-spacing:.01em;text-decoration:none}
+.big{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;border:0;border-radius:16px;background:var(--wheat);color:var(--wheat-ink);font-family:var(--f-display);font-weight:700;font-size:22px;letter-spacing:.01em;text-decoration:none}
 .big.dark{background:var(--ink);color:var(--bg)}
 .big.wa{background:var(--wa);color:var(--wa-ink)}
 .big small{font-family:var(--f-body);font-size:14px;font-weight:600;opacity:.85}
@@ -105,23 +105,23 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .bar>div{max-width:488px;margin:0 auto}
 
-.empty{padding:22px 16px;color:var(--muted);font-size:16px;text-align:center}
+.empty{padding:20px 16px;color:var(--muted);font-size:14px;text-align:center}
 .hist{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;width:100%;padding:14px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left}
 .hist:last-child{border-bottom:0}
-.hist b{font-size:17px}
-.hist span{font-size:14px;color:var(--muted)}
+.hist b{font-size:15px}
+.hist span{font-size:13px;color:var(--muted)}
 
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;min-width:0}
 .tile small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
-.tile b{font-family:var(--f-display);font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
-.tile p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.tile b{font-family:var(--f-display);font-size:22px;line-height:1.1;font-variant-numeric:tabular-nums}
+.tile p{margin:2px 0 0;font-size:13px;color:var(--muted)}
 .seg{display:grid;grid-template-columns:1fr 1fr;background:var(--sunk);border-radius:12px;padding:4px;margin-bottom:10px}
-.seg button{border:0;background:transparent;border-radius:9px;padding:10px;font-weight:600;font-size:16px;min-height:44px}
+.seg button{border:0;background:transparent;border-radius:9px;padding:8px;font-weight:600;font-size:15px;min-height:44px}
 .seg button[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .bubble{background:var(--surface);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:14px;margin-bottom:14px}
-.bubble textarea{width:100%;border:0;background:transparent;resize:none;font-family:var(--f-body);font-size:15px;line-height:1.5;min-height:200px;padding:0}
-.hint{font-size:14px;color:var(--muted);margin:6px 0 0}
+.bubble textarea{width:100%;border:0;background:transparent;resize:none;font-family:var(--f-body);font-size:14px;line-height:1.5;min-height:200px;padding:0}
+.hint{font-size:13px;color:var(--muted);margin:6px 0 0}
 
 /* sheet */
 .scrim{position:fixed;inset:0;z-index:40;background:var(--scrim);display:flex;align-items:flex-end}
@@ -130,52 +130,57 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 @media (prefers-reduced-motion:reduce){.sheet{animation:none}}
 .grab{width:44px;height:5px;border-radius:9px;background:var(--line);margin:4px auto 10px}
 .sh-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
-.sh-head h2{font-family:var(--f-display);font-size:30px;line-height:1.05;margin:0;text-wrap:balance}
-.sh-head p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.sh-head h2{font-family:var(--f-display);font-size:24px;line-height:1.05;margin:0;text-wrap:balance}
+.sh-head p{margin:4px 0 0;color:var(--muted);font-size:14px}
 .x{border:0;background:var(--sunk);border-radius:999px;width:44px;height:44px;font-size:22px;flex:none}
 .sh-foot{position:sticky;bottom:0;background:var(--bg);padding-top:10px;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));display:grid;gap:8px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 14px;margin-bottom:12px}
 .step{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
 .step:last-child{border-bottom:0}
-.step label{font-weight:600;font-size:17px;min-width:0}
+.step label{font-weight:600;font-size:15px;min-width:0}
 .stp{display:flex;align-items:center;gap:6px;flex:none}
-.sbtn{width:48px;height:48px;border-radius:12px;border:1px solid var(--line);background:var(--sunk);font-size:24px;font-weight:600;line-height:1}
-.sbtn.ten{width:auto;padding:0 10px;font-size:15px}
-.stp input{width:64px;height:48px;text-align:center;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-display);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.sbtn{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--sunk);font-size:20px;font-weight:600;line-height:1}
+.sbtn.ten{width:auto;padding:0 10px;font-size:14px}
+.stp input{width:60px;height:44px;text-align:center;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-display);font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
 .stp input::-webkit-outer-spin-button,.stp input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+/* Araç yükleme satırı: çeşit adı + adet */
+.lrow{display:grid;gap:8px;padding:12px 0;border-bottom:1px solid var(--line)}
+.lrow:last-child{border-bottom:0}
+.lname{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:16px;font-weight:600}
+.lrow .stp{justify-content:flex-start}
 /* Satış satırı: ürün adı + Taze / Bayat / İade kutuları */
 .prod{padding:12px 0;border-bottom:1px solid var(--line)}
 .prod:last-child{border-bottom:0}
-.pname{font-weight:700;font-size:18px;margin-bottom:8px}
+.pname{font-weight:700;font-size:15px;margin-bottom:8px}
 .tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .tc{display:grid;gap:4px;min-width:0}
-.tc label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:center}
+.tc label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:center}
 .tc.k-taze label{color:var(--ok)}
 .tc.k-bayat label{color:var(--warn)}
-.tc input{width:100%;height:52px;text-align:center;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-display);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.tc input{width:100%;height:46px;text-align:center;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-display);font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
 .tc.k-taze input{border-color:color-mix(in srgb,var(--ok) 45%,var(--line))}
 .tc.k-bayat input{border-color:color-mix(in srgb,var(--warn) 45%,var(--line))}
 .tc input::-webkit-outer-spin-button,.tc input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .pm{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.pm button{height:44px;border-radius:10px;border:1px solid var(--line);background:var(--sunk);font-size:22px;font-weight:600;line-height:1}
+.pm button{height:40px;border-radius:10px;border:1px solid var(--line);background:var(--sunk);font-size:20px;font-weight:600;line-height:1}
 .field{display:grid;gap:6px;margin-bottom:12px}
-.field label,.flabel{font-weight:600;font-size:16px}
-.field input[type=text],.field input[type=tel],.field input[type=time],.field input:not([type]),.field textarea,.cashin{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:12px 14px;font-size:18px}
+.field label,.flabel{font-weight:600;font-size:14px}
+.field input[type=text],.field input[type=tel],.field input[type=time],.field input:not([type]),.field textarea,.cashin{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:10px 12px;font-size:16px}
 .field textarea{min-height:150px;line-height:1.5}
-.cashin{font-family:var(--f-display);font-size:26px;font-weight:700}
-.check{display:flex;gap:12px;align-items:center;padding:12px 0;font-size:17px}
+.cashin{font-family:var(--f-display);font-size:22px;font-weight:700}
+.check{display:flex;gap:12px;align-items:center;padding:10px 0;font-size:15px}
 .check input{width:24px;height:24px;accent-color:var(--wheat)}
-.err{color:var(--warn);font-weight:600;font-size:15px;min-height:1px}
+.err{color:var(--warn);font-weight:600;font-size:14px;min-height:1px}
 .pills{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.pills .btn{flex:1 1 120px;min-height:48px;font-size:16px}
+.pills .btn{flex:1 1 120px;min-height:44px;font-size:15px}
 .prev{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:12px}
-.prev div{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);font-size:16px;align-items:center}
+.prev div{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);font-size:14px;align-items:center}
 .prev div:last-child{border-bottom:0}
 
 .set{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:12px}
 .set .field:last-child{margin-bottom:0}
 .prow{display:flex;gap:8px;align-items:center;padding:6px 0}
-.prow input[type=text]{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:17px}
+.prow input[type=text]{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:16px}
 .prow label{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--muted);white-space:nowrap}
 .prow input[type=checkbox]{width:22px;height:22px;accent-color:var(--wheat)}
 .mrow{display:grid;grid-template-columns:1fr auto auto auto;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
@@ -186,8 +191,8 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 .ib{width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:var(--sunk);font-size:18px}
 .ib:disabled{opacity:.35}
 
-.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(104px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--toast-bg);color:var(--toast-fg);border-radius:14px;padding:12px 16px;display:flex;gap:16px;align-items:center;font-size:16px;max-width:calc(100% - 32px);width:max-content;box-shadow:0 6px 20px rgba(0,0,0,.25)}
-.toast button{background:none;border:0;color:var(--wheat);font-weight:700;font-size:16px;padding:6px 2px;min-height:40px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(104px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--toast-bg);color:var(--toast-fg);border-radius:14px;padding:12px 16px;display:flex;gap:16px;align-items:center;font-size:15px;max-width:calc(100% - 32px);width:max-content;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.toast button{background:none;border:0;color:var(--wheat);font-weight:700;font-size:15px;padding:6px 2px;min-height:40px}
 .wz-prog{display:flex;gap:6px;margin:6px 0 18px}
 .wz-prog i{flex:1;height:6px;border-radius:9px;background:var(--line)}
 .wz-prog i.on{background:var(--wheat)}
@@ -293,14 +298,15 @@ function report(sh,short){
   const iadeP=S.products.filter(p=>iade[p.id]);
   L.push('',`↩️ *İade* (${iadeP.length} çeşit, toplam ${total(iade)})`);
   L.push(...(iadeP.length?iadeP.map(p=>`${p.name}: ${iade[p.id]}`):['İade alınmadı']));
+  // Araç yüklemeleri: her yükleme saatiyle ayrı satır
+  L.push('',`🚚 *Araç yüklemeleri* (${sh.loads.length})`);
+  if(!sh.loads.length)L.push('Yükleme girilmedi');
+  sh.loads.slice().sort((a,b)=>a.ts-b.ts).forEach((l,i)=>L.push(`${i+1}. ${hm(l.ts)} – ${itemsText(l.items,' · ')}`));
+  if(sh.loads.length>1)L.push('Toplam yüklenen: '+itemsText(loaded(sh),' · '));
+  if(sh.loads.length)L.push('Araçta kalan: '+(itemsText(sh.leftover||remaining(sh),' · ')||'0'));
   L.push('');
   if(cash>0||S.customers.some(c=>c.daily&&sh.cids.includes(c.id)))L.push(`💵 Nakit tahsilat: ${tl(cash)} (${cashN} müşteri)`);
   if(short&&noPay.length)L.push(`⚠️ Tahsilat yok: ${noPay.map(g=>C(g.cid).name).join(', ')}`);
-  if(sh.loads.length){
-    L.push('Yüklenen: '+itemsText(loaded(sh),' · '));
-    const lo=sh.leftover||remaining(sh);
-    L.push('Araçta kalan: '+(itemsText(lo,' · ')||'0'));
-  }
   while(L[L.length-1]==='')L.pop();
   return L.join('\n');
 }
@@ -315,6 +321,12 @@ function topbar(sub,extra=''){
 }
 function backbar(label='Ana ekran'){return`<button class="back" data-act="go" data-v="home">← ${label}</button>`}
 function sampleBanner(){return S.sample?`<div class="banner"><span>Örnek verilerle açıldı. Kendi listenizi girmek için:</span><button data-act="askreset">Kendi verimi gir</button></div>`:''}
+/* Araç yükleme satırı: çeşit adı (düzenlenebilir) + adet. pid boşsa yeni çeşittir. */
+let keySeq=0;const newKey=()=>'n'+(++keySeq);
+function loadRow(key,name,pid){
+  return`<div class="lrow" data-key="${key}" data-pid="${pid}"><input type="text" class="lname" id="ln_${key}" value="${esc(name)}" placeholder="Çeşit adı (örn. Normal Ekmek)" aria-label="Çeşit adı">
+  <div class="stp"><button type="button" class="sbtn" data-act="dec" data-for="l_${key}" aria-label="Adet bir azalt">−</button><input id="l_${key}" type="number" inputmode="numeric" min="0" value="0" aria-label="${esc(name||'Yeni çeşit')} adedi"><button type="button" class="sbtn" data-act="inc" data-for="l_${key}" aria-label="Adet bir artır">+</button><button type="button" class="sbtn ten" data-act="inc10" data-for="l_${key}" aria-label="Adet on artır">+10</button></div></div>`;
+}
 /* Bir ürünün satış satırı: 1. kutu taze verilen, 2. kutu bayat verilen, 3. kutu iade alınan (taze ya da bayat) */
 function saleRow(p,t,b,i){
   const col=(pre,kind,label,val)=>`<div class="tc k-${kind}"><label for="${pre}${p.id}">${label}</label>
@@ -442,15 +454,14 @@ function vSettings(){
   <div class="set"><button class="btn danger" style="width:100%" data-act="askreset">Tüm verileri sil, kurulumu başlat</button></div>`;
 }
 function vWizard(){
-  const w=ui.wz,steps=4;
+  const w=ui.wz,steps=3;
   let body='';
   if(w.step===1)body=`<div class="field"><label for="wz_f">Adınız</label><input id="wz_f" type="text" value="${esc(w.name)}" placeholder="Örn. Ahmet"><p class="hint">Raporun başında görünür.</p></div>`;
   if(w.step===2)body=`<div class="field"><label for="wz_f">Fırın sahibinin WhatsApp numarası</label><input id="wz_f" type="tel" inputmode="tel" value="${esc(w.phone)}" placeholder="0532 123 45 67"><p class="hint">Rapor bu numaraya gider. Bir gruba gönderecekseniz boş bırakın; WhatsApp'ta grubu siz seçersiniz.</p></div>`;
-  if(w.step===3)body=`<div class="field"><label for="wz_f">Ürünler (her satıra bir ürün)</label><textarea id="wz_f">${esc(w.products)}</textarea></div>`;
-  if(w.step===4)body=`<div class="field"><label for="wz_f">Müşteriler (her satıra bir müşteri, gidiş sırasıyla)</label><textarea id="wz_f" placeholder="Yıldız Market&#10;Çınar Bakkal&#10;Güneş Lokanta">${esc(w.customers)}</textarea><p class="hint">Standart adet ve günlük tahsilat bilgisini sonra Ayarlar'dan eklersiniz.</p></div>`;
+  if(w.step===3)body=`<div class="field"><label for="wz_f">Müşteriler (her satıra bir müşteri, gidiş sırasıyla)</label><textarea id="wz_f" placeholder="Yıldız Market&#10;Çınar Bakkal&#10;Güneş Lokanta">${esc(w.customers)}</textarea><p class="hint">Ekmek çeşitlerini her mesaide araç yüklemesinde yazarsınız. Standart adet ve günlük tahsilat bilgisini sonra Ayarlar'dan eklersiniz.</p></div>`;
   return`<header class="top"><div class="brand">${logo}Ekmek Defteri</div><button class="link" data-act="wzdone">Kurulumu atla</button></header>
   <div class="wz-prog">${Array.from({length:steps},(_,i)=>`<i class="${i<w.step?'on':''}"></i>`).join('')}</div>
-  <section class="hero"><h1>${['Hoş geldiniz','Rapor kime gidecek?','Neler dağıtıyorsunuz?','Hangi dükkânlara gidiyorsunuz?'][w.step-1]}</h1><p>Adım ${w.step}/${steps}</p></section>
+  <section class="hero"><h1>${['Hoş geldiniz','Rapor kime gidecek?','Hangi dükkânlara gidiyorsunuz?'][w.step-1]}</h1><p>Adım ${w.step}/${steps}</p></section>
   ${body}
   <div class="bar"><div style="display:flex;gap:10px">${w.step>1?`<button class="btn" style="flex:0 0 30%" data-act="wz" data-d="-1">Geri</button>`:''}<button class="big" data-act="wz" data-d="1">${w.step<steps?'İleri':'Bitir'}</button></div></div>`;
 }
@@ -474,6 +485,7 @@ function vSheet(){
     }
     const base=edit?edit.items:(mine.length?{}:(c.std||{}));
     const prods=S.products.filter(p=>p.active||(edit&&(edit.items[p.id]||(edit.bayat||{})[p.id]||(edit.iade||{})[p.id])));
+    if(!prods.length)return sheetWrap(c.name,'',`<div class="alert"><span><b>Henüz ekmek çeşidi yok.</b> Önce araç yüklemesinde çeşitleri yazın.</span></div>`,`<button class="big" data-act="load">Araç yüklemesine git</button>`);
     if(!edit&&!mine.length)body+=`<div class="pills"><button class="btn" data-act="setst" data-cid="${s.cid}" data-s="kapali" ${st==='kapali'?'aria-pressed="true"':''}>Kapalıydı</button><button class="btn" data-act="setst" data-cid="${s.cid}" data-s="ugranmadi">Uğranmadı</button>${st!=='bekliyor'?`<button class="btn" data-act="clrst" data-cid="${s.cid}">Bekliyor'a al</button>`:''}</div>`;
     body+=`<div id="custForm" data-std='${esc(JSON.stringify(edit||mine.length?{}:(c.std||{})))}'>`;
     body+=`<div class="card">${prods.map(p=>saleRow(p,base[p.id],edit?(edit.bayat||{})[p.id]:0,edit?(edit.iade||{})[p.id]:0)).join('')}</div>`;
@@ -488,7 +500,13 @@ function vSheet(){
     return sheetWrap(c.name,sub,body,`<button class="big" id="saveBtn" data-act="savedel">Kaydet</button>`);
   }
   if(s.t==='load'){
-    return sheetWrap('Yükleme ekle','Fırından araca konan adetler',`<div class="card">${S.products.filter(p=>p.active).map(p=>stepper('l_'+p.id,p.name,0)).join('')}</div><p class="err" id="q_err"></p>`,`<button class="big" data-act="saveload">Yüklemeyi ekle</button>`);
+    const act=S.products.filter(p=>p.active);
+    const prev=sh.loads.length?`<div class="flabel" style="margin-bottom:6px">Bu mesaideki yüklemeler</div><div class="prev">${sh.loads.slice().sort((a,b)=>a.ts-b.ts).map((l,i)=>`<div><span><b class="num">${i+1}. ${hm(l.ts)}</b> · ${itemsText(l.items,' · ')}</span></div>`).join('')}</div>`:'';
+    const rows=(act.length?act.map(p=>loadRow(p.id,p.name,p.id)):[loadRow(newKey(),'','')]).join('');
+    return sheetWrap('Araç yüklemesi','Çeşit adlarını buradan düzeltebilir, yeni çeşit ekleyebilirsiniz.',
+      `${prev}<div class="card" id="loadRows">${rows}</div>
+      <button class="link" data-act="addloadrow">+ Yeni çeşit ekle</button><p class="err" id="q_err"></p>`,
+      `<button class="big" data-act="saveload">Yüklemeyi kaydet</button>${s.first?'<button class="btn" data-act="close">Şimdilik atla</button>':''}`);
   }
   if(s.t==='newcust'||s.t==='editcust'){
     const c=s.t==='editcust'?C(s.id):{name:'',phone:'',note:'',std:{},daily:false,active:true};
@@ -575,19 +593,20 @@ function copyText(t,fallbackId){
 }
 function buildState(w){
   const lines=s=>String(s||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
-  const pn=lines(w.products);const products=(pn.length?pn:['Normal Ekmek']).map((name,i)=>({id:'p'+uid(),name,active:true}));
+  const products=[]; // çeşitler araç yüklemesinde girilir
   const seen=new Set();const customers=[];
   lines(w.customers).forEach(name=>{const k=name.toLocaleLowerCase('tr');if(seen.has(k))return;seen.add(k);customers.push({id:'c'+uid(),name,phone:'',note:'',std:{},daily:false,active:true})});
   return{v:3,sample:false,settings:{name:w.name||'',phone:w.phone||'',header:'Dağıtım Raporu',startMsg:false},products,customers,shifts:[],activeId:null};
 }
-function wzRead(){const f=$('wz_f');if(!f)return;const k=['name','phone','products','customers'][ui.wz.step-1];ui.wz[k]=f.value.trim()}
+function wzRead(){const f=$('wz_f');if(!f)return;const k=['name','phone','customers'][ui.wz.step-1];ui.wz[k]=f.value.trim()}
 
 /* ---- eylemler ---- */
 const A={
   go:d=>{ui.view=d.v;ui.sheet=null;render();window.scrollTo(0,0)},
   start:()=>{
     const sh={id:uid(),start:Date.now(),end:null,cids:S.customers.filter(c=>c.active).map(c=>c.id),loads:[],deliveries:[],statuses:{},leftover:null,sent:false,startSent:false};
-    S.shifts.push(sh);S.activeId=sh.id;save();ui.view='home';render();window.scrollTo(0,0);toast('Mesai başladı · '+hm(sh.start));
+    S.shifts.push(sh);S.activeId=sh.id;save();ui.view='home';window.scrollTo(0,0);
+    openSheet({t:'load',first:true});toast('Mesai başladı · '+hm(sh.start));
   },
   cust:d=>openSheet({t:'cust',cid:d.id}),
   extra:d=>openSheet({t:'cust',cid:d.id,extra:true}),
@@ -616,9 +635,28 @@ const A={
   clrst:d=>{delete active().statuses[d.cid];save();openSheet({t:'cust',cid:d.cid})},
   deldel:d=>{snap();const sh=active();sh.deliveries=sh.deliveries.filter(x=>x.id!==d.id);save();ui.sheet=null;render();toast('Teslimat silindi',true)},
   load:()=>openSheet({t:'load'}),
-  saveload:()=>{const items={};S.products.forEach(p=>{const v=nv('l_'+p.id);if(v)items[p.id]=v});
-    if(!Object.keys(items).length){err('En az bir ürün adedi girin.');return}
-    snap();active().loads.push({ts:Date.now(),items});save();ui.sheet=null;render();toast('Yükleme eklendi',true)},
+  addloadrow:()=>{const box=$('loadRows'),k=newKey();box.insertAdjacentHTML('beforeend',loadRow(k,'',''));$('ln_'+k).focus()},
+  saveload:()=>{
+    const rows=[...document.querySelectorAll('#loadRows .lrow')],seen=new Set(),plan=[];
+    for(const r of rows){
+      const k=r.dataset.key,name=$('ln_'+k).value.trim(),qty=nv('l_'+k);
+      if(!name){if(qty){err('Adet girdiğiniz her çeşidin adını yazın.');return}continue}
+      const low=name.toLocaleLowerCase('tr');
+      if(seen.has(low)){err(`"${name}" iki kez yazılmış.`);return}
+      seen.add(low);plan.push({pid:r.dataset.pid,name,qty});
+    }
+    if(!plan.length){err('En az bir çeşit adı yazın.');return}
+    snap();
+    const items={};
+    plan.forEach(x=>{
+      let p=x.pid?P(x.pid):S.products.find(q=>q.name.toLocaleLowerCase('tr')===x.name.toLocaleLowerCase('tr'));
+      if(!p){p={id:'p'+uid(),name:x.name,active:true};S.products.push(p)}else{p.name=x.name;p.active=true}
+      if(x.qty)items[p.id]=x.qty;
+    });
+    const n=Object.keys(items).length;
+    if(n)active().loads.push({ts:Date.now(),items});
+    save();ui.sheet=null;render();toast(n?'Yükleme kaydedildi':'Çeşit adları güncellendi',true);
+  },
   newcust:()=>openSheet({t:'newcust'}),
   addcust:()=>openSheet({t:'newcust',full:true}),
   editcust:d=>openSheet({t:'editcust',id:d.id}),
@@ -673,8 +711,8 @@ const A={
     catch(e){err('Bu metin geçerli bir Ekmek Defteri yedeği değil. Yedeğin tamamını yapıştırdığınızdan emin olun.')}
   },
   askreset:()=>openSheet({t:'reset'}),
-  doreset:()=>{ui.sheet=null;ui.wz={step:1,name:'',phone:'',products:'Normal Ekmek\nTam Buğday\nPide',customers:''};ui.view='wizard';render();window.scrollTo(0,0)},
-  wz:d=>{wzRead();const n=ui.wz.step+(+d.d);if(n<1)return;if(n>4){A.wzdone();return}ui.wz.step=n;render()},
+  doreset:()=>{ui.sheet=null;ui.wz={step:1,name:'',phone:'',customers:''};ui.view='wizard';render();window.scrollTo(0,0)},
+  wz:d=>{wzRead();const n=ui.wz.step+(+d.d);if(n<1)return;if(n>3){A.wzdone();return}ui.wz.step=n;render()},
   wzdone:()=>{wzRead();S=buildState(ui.wz);save();ui.wz=null;ui.view='home';render();window.scrollTo(0,0);toast('Kurulum tamamlandı')},
   close:()=>closeSheet(),
   scrim:(d,el,e)=>{if(e.target===el)closeSheet()},
@@ -733,7 +771,7 @@ function boot(){
   S=load();
   if(!S){
     S=buildState({});
-    ui.wz={step:1,name:'',phone:'',products:'Normal Ekmek\nTam Buğday\nPide',customers:''};
+    ui.wz={step:1,name:'',phone:'',customers:''};
     ui.view='wizard';
   }else{
     S.shifts=S.shifts.filter(s=>s.id===S.activeId||Date.now()-s.start<60*DAY);

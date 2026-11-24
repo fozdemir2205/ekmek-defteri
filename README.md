@@ -24,7 +24,7 @@ Uygulama HTTPS üzerinden yayınlanmalıdır, aksi hâlde Android'de kurulum ve 
 1. Adresi Android telefonda **Chrome** ile açın.
 2. Sağ üstteki ⋮ menüsünden **Uygulamayı yükle** (bazı telefonlarda **Ana ekrana ekle**) seçeneğine dokunun.
 3. Ekmek Defteri ana ekranda normal bir uygulama gibi görünür. Bir kez açıldıktan sonra internet olmadan da çalışır. İnternet yalnızca WhatsApp'a gönderirken gerekir.
-4. İlk açılışta 4 adımlık kurulum gelir: ad, fırın sahibinin numarası, ürünler ve müşteriler.
+4. İlk açılışta 3 adımlık kurulum gelir: ad, fırın sahibinin numarası ve müşteriler. Ekmek çeşitleri mesai başlayınca açılan araç yükleme ekranında yazılır; adlar her yüklemede düzeltilebilir.
 
 ## Güncelleme yayınlarken
 
