@@ -91,6 +91,14 @@ _Avoid_: Ödeme, kasa, havale
 Her teslimatta nakit tahsilat yapılan müşteri; diğer müşterilerden günlük para alınmaz.
 _Avoid_: Peşin müşteri
 
+**Masraf**:
+Dağıtımcının mesai içinde toplanan nakitten yaptığı harcama (yakıt, yemek gibi); mesai bitirilmeden önce girilir.
+_Avoid_: Gider, harcırah
+
+**Kasaya Teslim (Net)**:
+Mesai sonunda fırın kasasına teslim edilmesi gereken tutar: toplanan nakit eksi masraflar.
+_Avoid_: Kalan para, hesap
+
 **Tahsilat Yok**:
 Günlük tahsilatlı bir müşterinin teslimatında nakit alınmamış olması; raporda uyarı olarak görünür.
 

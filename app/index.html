@@ -37,7 +37,7 @@
 :root{color-scheme:light;padding-top:env(safe-area-inset-top,0px)}
 [hidden]{display:none!important}
 html,body{overscroll-behavior-y:none}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.45;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45;-webkit-tap-highlight-color:transparent}
 button,input,textarea,select{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:3px solid var(--wheat);outline-offset:2px}
@@ -50,7 +50,7 @@ button{cursor:pointer}
 .top-sub{font-size:14px;color:var(--muted);margin-top:2px}
 .tbtns{display:flex;gap:8px}
 .ghost{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;min-height:44px}
-.back{background:none;border:0;padding:8px 0;font-size:16px;font-weight:600;color:var(--muted);min-height:44px}
+.back{background:none;border:0;padding:8px 0;font-size:14px;font-weight:600;color:var(--muted);min-height:44px}
 
 .banner{background:var(--wheat-soft);border-radius:var(--r);padding:10px 14px;font-size:14px;display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
 .banner button{background:none;border:0;font-weight:700;text-decoration:underline;font-size:15px;padding:6px 0;white-space:nowrap}
@@ -73,13 +73,13 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 .link{background:none;border:0;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px;padding:8px 0;font-size:14px;white-space:nowrap;min-height:44px}
 
 .sec{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:22px 0 8px;display:flex;justify-content:space-between;align-items:baseline}
-.search{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:12px 14px;margin-bottom:10px;font-size:16px}
+.search{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:12px 14px;margin-bottom:10px;font-size:14px}
 
 .list{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .crow{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;width:100%;min-height:60px;padding:10px 14px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;border-left:5px solid transparent}
 .crow:last-child{border-bottom:0}
 .crow .ix{font-family:var(--f-display);font-size:17px;color:var(--muted);font-variant-numeric:tabular-nums}
-.crow .nm{font-weight:600;font-size:16px;line-height:1.25;min-width:0}
+.crow .nm{font-weight:600;font-size:15px;line-height:1.25;min-width:0}
 .crow .sub{display:block;font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
 .crow.s-teslim{border-left-color:var(--ok);background:color-mix(in srgb,var(--ok-soft) 55%,transparent)}
 .crow.s-kapali{border-left-color:var(--off)}
@@ -143,10 +143,22 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 .sbtn.ten{width:auto;padding:0 10px;font-size:14px}
 .stp input{width:60px;height:44px;text-align:center;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-family:var(--f-display);font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
 .stp input::-webkit-outer-spin-button,.stp input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+/* Masraf satırı ve kasa özeti */
+#expRows:empty{display:none}
+.erow{display:grid;grid-template-columns:minmax(0,1fr) 96px 44px;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.erow:last-child{border-bottom:0}
+.erow input{width:100%;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:14px}
+.erow input[type=number]{text-align:right;font-family:var(--f-display);font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
+.kasa{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:8px}
+.kasa div{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);align-items:baseline}
+.kasa div:last-child{border-bottom:0}
+.kasa b{font-family:var(--f-display);font-size:18px;font-variant-numeric:tabular-nums}
+.kasa .net{background:var(--wheat-soft);border-radius:0 0 var(--r) var(--r)}
+.kasa .net b{font-size:22px}
 /* Araç yükleme satırı: çeşit adı + adet */
 .lrow{display:grid;gap:8px;padding:12px 0;border-bottom:1px solid var(--line)}
 .lrow:last-child{border-bottom:0}
-.lname{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:16px;font-weight:600}
+.lname{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:14px;font-weight:600}
 .lrow .stp{justify-content:flex-start}
 /* Satış satırı: ürün adı + Taze / Bayat / İade kutuları */
 .prod{padding:12px 0;border-bottom:1px solid var(--line)}
@@ -165,7 +177,7 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 .pm button{height:40px;border-radius:10px;border:1px solid var(--line);background:var(--sunk);font-size:20px;font-weight:600;line-height:1}
 .field{display:grid;gap:6px;margin-bottom:12px}
 .field label,.flabel{font-weight:600;font-size:14px}
-.field input[type=text],.field input[type=tel],.field input[type=time],.field input:not([type]),.field textarea,.cashin{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:10px 12px;font-size:16px}
+.field input[type=text],.field input[type=tel],.field input[type=time],.field input:not([type]),.field textarea,.cashin{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:10px 12px;font-size:14px}
 .field textarea{min-height:150px;line-height:1.5}
 .cashin{font-family:var(--f-display);font-size:22px;font-weight:700}
 .check{display:flex;gap:12px;align-items:center;padding:10px 0;font-size:15px}
@@ -180,7 +192,7 @@ button.stat b::after{content:" ✎";font-size:15px;color:var(--muted);font-famil
 .set{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:12px}
 .set .field:last-child{margin-bottom:0}
 .prow{display:flex;gap:8px;align-items:center;padding:6px 0}
-.prow input[type=text]{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:16px}
+.prow input[type=text]{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:14px}
 .prow label{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--muted);white-space:nowrap}
 .prow input[type=checkbox]{width:22px;height:22px;accent-color:var(--wheat)}
 .mrow{display:grid;grid-template-columns:1fr auto auto auto;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
@@ -304,9 +316,14 @@ function report(sh,short){
   sh.loads.slice().sort((a,b)=>a.ts-b.ts).forEach((l,i)=>L.push(`${i+1}. ${hm(l.ts)} – ${itemsText(l.items,' · ')}`));
   if(sh.loads.length>1)L.push('Toplam yüklenen: '+itemsText(loaded(sh),' · '));
   if(sh.loads.length)L.push('Araçta kalan: '+(itemsText(sh.leftover||remaining(sh),' · ')||'0'));
-  L.push('');
-  if(cash>0||S.customers.some(c=>c.daily&&sh.cids.includes(c.id)))L.push(`💵 Nakit tahsilat: ${tl(cash)} (${cashN} müşteri)`);
+  // Kasa: toplanan nakit − masraflar = kasaya teslim edilecek net tutar
+  const ex=sh.expenses||[],exT=ex.reduce((s,e)=>s+(e.amount||0),0);
+  L.push('','💰 *Kasa*');
+  L.push(`Toplanan nakit: ${tl(cash)} (${cashN} müşteri)`);
   if(short&&noPay.length)L.push(`⚠️ Tahsilat yok: ${noPay.map(g=>C(g.cid).name).join(', ')}`);
+  L.push(`Masraflar: ${tl(exT)}`);
+  ex.forEach(e=>L.push(`- ${e.desc}: ${tl(e.amount)}`));
+  L.push(`*Kasaya teslim (net): ${tl(cash-exT)}*`);
   while(L[L.length-1]==='')L.pop();
   return L.join('\n');
 }
@@ -326,6 +343,20 @@ let keySeq=0;const newKey=()=>'n'+(++keySeq);
 function loadRow(key,name,pid){
   return`<div class="lrow" data-key="${key}" data-pid="${pid}"><input type="text" class="lname" id="ln_${key}" value="${esc(name)}" placeholder="Çeşit adı (örn. Normal Ekmek)" aria-label="Çeşit adı">
   <div class="stp"><button type="button" class="sbtn" data-act="dec" data-for="l_${key}" aria-label="Adet bir azalt">−</button><input id="l_${key}" type="number" inputmode="numeric" min="0" value="0" aria-label="${esc(name||'Yeni çeşit')} adedi"><button type="button" class="sbtn" data-act="inc" data-for="l_${key}" aria-label="Adet bir artır">+</button><button type="button" class="sbtn ten" data-act="inc10" data-for="l_${key}" aria-label="Adet on artır">+10</button></div></div>`;
+}
+/* Masraf satırı: açıklama + tutar (₺) + sil */
+function expRow(key,desc,amount){
+  return`<div class="erow" data-key="${key}"><input type="text" id="ed_${key}" value="${esc(desc||'')}" placeholder="Masraf (örn. yakıt)" aria-label="Masraf açıklaması">
+  <input type="number" id="ea_${key}" inputmode="numeric" min="0" step="1" value="${amount||''}" placeholder="0 ₺" aria-label="Masraf tutarı">
+  <button type="button" class="ib" data-act="delexp" data-key="${key}" aria-label="Masrafı sil">×</button></div>`;
+}
+/* Ekrandaki masraf satırlarını okur: [{desc,amount}] (tutarı 0 olanlar atlanır) */
+function readExp(){return[...document.querySelectorAll('#expRows .erow')].map(r=>{const k=r.dataset.key;return{desc:$('ed_'+k).value.trim()||'Masraf',amount:Math.max(0,parseInt($('ea_'+k).value,10)||0)}}).filter(e=>e.amount>0)}
+/* Bitiş ekranındaki canlı kasa özeti */
+function updKasa(){
+  const box=$('kasaBox'),sh=active();if(!box||!sh)return;
+  const cash=cashOf(sh.deliveries),ex=total(Object.fromEntries(readExp().map((e,i)=>[i,e.amount])));
+  box.innerHTML=`<div><span>Toplanan nakit</span><b>${tl(cash)}</b></div><div><span>Masraflar</span><b>− ${tl(ex)}</b></div><div class="net"><span>Kasaya teslim (net)</span><b>${tl(cash-ex)}</b></div>`;
 }
 /* Bir ürünün satış satırı: 1. kutu taze verilen, 2. kutu bayat verilen, 3. kutu iade alınan (taze ya da bayat) */
 function saleRow(p,t,b,i){
@@ -398,6 +429,7 @@ function vShift(){
 function vSummary(){
   const sh=shiftById(ui.summaryId);if(!sh){ui.view='home';return vHome()}
   const G=groups(sh),t=sumItems(sh.deliveries.map(d=>d.items)),bz=bayatSum(sh.deliveries),iade=iadeSum(sh.deliveries),cash=cashOf(sh.deliveries);
+  const exT=(sh.expenses||[]).reduce((s,e)=>s+(e.amount||0),0);
   const noPay=G.filter(g=>C(g.cid).daily&&cashOf(g.list)===0).length;
   const txt=report(sh,ui.short);
   const canReopen=!S.activeId&&dmy(sh.start)===today();
@@ -407,7 +439,7 @@ function vSummary(){
   <p><span class="chip ${sh.sent?'c-sent':'c-unsent'}">${sh.sent?'WhatsApp\'a gönderildi':'Henüz gönderilmedi'}</span></p></section>
   <div class="tiles">
     <div class="tile"><small>Teslim</small><b>${G.length}/${sh.cids.length}</b><p>müşteri</p></div>
-    <div class="tile"><small>Nakit</small><b>${tl(cash)}</b><p>${noPay?`⚠️ ${noPay} müşteride tahsilat yok`:'tahsilat'}</p></div>
+    <div class="tile"><small>Kasaya teslim</small><b>${tl(cash-exT)}</b><p>Nakit ${tl(cash)} − Masraf ${tl(exT)}${noPay?`<br>⚠️ ${noPay} müşteride tahsilat yok`:''}</p></div>
     <div class="tile"><small>Verilen</small><b>${total(t)+total(bz)}</b><p>Taze ${total(t)} · Bayat ${total(bz)}</p></div>
     <div class="tile"><small>İade</small><b>${total(iade)}</b><p>${itemsText(iade,' · ')||'iade alınmadı'}</p></div>
   </div>
@@ -529,7 +561,13 @@ function vSheet(){
     if(pend)body+=`<div class="alert"><span><b>${pend} müşteri işaretlenmedi.</b> Bitirince "Uğranmadı" sayılacaklar.</span></div>`;
     if(sh.loads.length){const r=remaining(sh);
       body+=`<div class="flabel">Araçta kalan</div><p class="hint" style="margin:0 0 8px">Hesaplanan değer. Gerekirse düzeltin.</p><div class="card">${S.products.filter(p=>p.id in r).map(p=>stepper('r_'+p.id,p.name,r[p.id])).join('')}</div>`;}
-    return sheetWrap('Mesaiyi bitir','Emin misiniz?',body,`<button class="big dark" data-act="dofinish">Evet, mesaiyi bitir</button><button class="btn" data-act="close">Vazgeç</button>`);
+    // Masraflar: toplanan nakitten düşülür, kalan kasaya teslim edilir
+    const ex=(sh.expenses||[]);
+    body+=`<div class="flabel" style="margin-top:4px">Masraflar</div><p class="hint" style="margin:0 0 8px">Gün içinde nakitten yaptığınız harcamalar. Toplanan paradan düşülür.</p>
+    <div class="card" id="expRows">${(ex.length?ex:[]).map(e=>expRow(newKey(),e.desc,e.amount)).join('')}</div>
+    <div class="pills"><button class="btn" data-act="addexp" data-d="Yakıt">+ Yakıt</button><button class="btn" data-act="addexp" data-d="Yemek">+ Yemek</button><button class="btn" data-act="addexp" data-d="">+ Diğer</button></div>
+    <div class="kasa" id="kasaBox"></div><p class="err" id="q_err"></p>`;
+    return sheetWrap('Mesaiyi bitir','Masrafları girin ve onaylayın',body,`<button class="big dark" data-act="dofinish">Evet, mesaiyi bitir</button><button class="btn" data-act="close">Vazgeç</button>`);
   }
   if(s.t==='sttime'){
     return sheetWrap('Başlangıç saati','Yanlış saatte bastıysanız düzeltin',`<div class="field"><label for="t_start">Saat</label><input id="t_start" type="time" value="${hm(sh.start)}"></div>`,`<button class="big" data-act="savesttime">Kaydet</button>`);
@@ -560,7 +598,7 @@ function render(){
   $('app').innerHTML=h;
   syncGuard();
   const sw=$('sheet');
-  if(ui.sheet&&(active()||!['cust','load','finish','sttime','stale'].includes(ui.sheet.t))){sw.innerHTML=vSheet();sw.hidden=false;updSaveLabel()}
+  if(ui.sheet&&(active()||!['cust','load','finish','sttime','stale'].includes(ui.sheet.t))){sw.innerHTML=vSheet();sw.hidden=false;updSaveLabel();updKasa()}
   else{ui.sheet=null;sw.innerHTML='';sw.hidden=true}
   document.body.style.overflow=ui.sheet?'hidden':'';
 }
@@ -683,8 +721,11 @@ const A={
     save();ui.sheet=null;render();toast(`${add} müşteri eklendi${dup?`, ${dup} tanesi zaten vardı`:''}`)},
   addprod:()=>{const v=$('newprod').value.trim();if(!v)return;S.products.push({id:'p'+uid(),name:v,active:true});save();render();toast(v+' eklendi')},
   finish:()=>openSheet({t:'finish'}),
+  addexp:d=>{const k=newKey();$('expRows').insertAdjacentHTML('beforeend',expRow(k,d.d,''));(d.d?$('ea_'+k):$('ed_'+k)).focus();updKasa()},
+  delexp:d=>{const r=document.querySelector(`#expRows .erow[data-key="${d.key}"]`);if(r)r.remove();updKasa()},
   dofinish:()=>{
     const sh=active();
+    sh.expenses=readExp();
     if(sh.loads.length){const lo={};S.products.forEach(p=>{if($('r_'+p.id))lo[p.id]=nv('r_'+p.id)});sh.leftover=lo}
     sh.end=Date.now();S.activeId=null;save();
     undoSnap=null;clearTimeout(toastTimer);ui.toast=null;renderToast();
@@ -728,6 +769,7 @@ document.addEventListener('input',e=>{
   const t=e.target;
   if(t.id==='search'){const q=t.value.trim().toLocaleLowerCase('tr');document.querySelectorAll('#clist .crow').forEach(r=>{r.hidden=q&&!r.dataset.name.includes(q)})}
   if(t.closest&&t.closest('#custForm'))updSaveLabel();
+  if(t.closest&&t.closest('#expRows'))updKasa();
 });
 document.addEventListener('focusin',e=>{if(e.target.matches('.stp input,.cashin'))setTimeout(()=>e.target.select(),0)});
 document.addEventListener('change',e=>{
