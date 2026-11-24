@@ -24,7 +24,7 @@ Uygulama HTTPS üzerinden yayınlanmalıdır, aksi hâlde Android'de kurulum ve 
 1. Adresi Android telefonda **Chrome** ile açın.
 2. Sağ üstteki ⋮ menüsünden **Uygulamayı yükle** (bazı telefonlarda **Ana ekrana ekle**) seçeneğine dokunun.
 3. Dağıtım Günlüğü ana ekranda normal bir uygulama gibi görünür. Bir kez açıldıktan sonra internet olmadan da çalışır. İnternet yalnızca WhatsApp'a gönderirken gerekir.
-4. İlk açılışta 3 adımlık kurulum gelir: ad, rapor yollanacak adres (WhatsApp numarası, rehberden seçilebilir) ve müşteriler. Ekmek çeşitleri mesai başlayınca açılan araç yükleme ekranında yazılır; adlar her yüklemede düzeltilebilir.
+4. İlk açılışta 3 adımlık kurulum gelir: ad, rapor yollanacak adres (WhatsApp numarası, rehberden seçilebilir) ve bayiler. Ekmek çeşitleri mesai başlayınca açılan araç yükleme ekranında yazılır; adlar her yüklemede düzeltilebilir.
 
 ## Güncelleme yayınlarken
 

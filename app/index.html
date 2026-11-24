@@ -258,7 +258,7 @@ function sumItems(list){const t={};list.forEach(it=>{for(const k in it)t[k]=(t[k
 function itemsText(t,sep=', '){return S.products.filter(p=>t[p.id]).map(p=>p.name+' '+t[p.id]).join(sep)}
 function loaded(sh){return sumItems(sh.loads.map(l=>l.items))}
 /* Her teslimatta ürün başına üç sayı tutulur ({ürünId: adet}):
-   items = verilen taze, bayat = verilen bayat, iade = müşteriden geri alınan (taze ya da bayat). */
+   items = verilen taze, bayat = verilen bayat, iade = bayiden geri alınan (taze ya da bayat). */
 function bayatSum(list){return sumItems(list.map(d=>d.bayat||{}))}
 function iadeSum(list){return sumItems(list.map(d=>d.iade||{}))}
 function total(o){return Object.values(o||{}).reduce((a,b)=>a+(+b||0),0)}
@@ -315,8 +315,8 @@ function report(sh,short){
       missing.forEach(cid=>L.push(`- ${C(cid).name} (${ST[statusOf(sh,cid)]})`));
     }
   }else{
-    L.push('',`✅ Teslim edilen: ${G.length}/${sh.cids.length} müşteri (${dels.length} teslimat)`);
-    if(missing.length)L.push(`Uğranmadı / Kapalı: ${missing.length} müşteri`);
+    L.push('',`✅ Teslim edilen: ${G.length}/${sh.cids.length} bayi (${dels.length} teslimat)`);
+    if(missing.length)L.push(`Uğranmadı / Kapalı: ${missing.length} bayi`);
   }
 
   // 3) Toplamlar
@@ -333,7 +333,7 @@ function report(sh,short){
   // 4) En sonda: masraflar ve kasaya teslim edilecek tutar
   const ex=sh.expenses||[],exT=ex.reduce((s,e)=>s+(e.amount||0),0);
   L.push('','💰 *Kasa*');
-  L.push(`Toplanan nakit: ${tl(cash)} (${cashN} müşteri)`);
+  L.push(`Toplanan nakit: ${tl(cash)} (${cashN} bayi)`);
   if(noPay.length)L.push(`⚠️ Tahsilat yok: ${noPay.map(g=>C(g.cid).name).join(', ')}`);
   L.push(`Masraflar: ${tl(exT)}`);
   ex.forEach(e=>L.push(`- ${e.desc}: ${tl(e.amount)}`));
@@ -395,7 +395,7 @@ function vHome(){
   return`${topbar(today(),`<button class="ghost" data-act="go" data-v="history">Geçmiş</button>`)}
   ${sampleBanner()}
   <section class="hero"><h1>${greet}${S.settings.name?', '+esc(S.settings.name):''}</h1>
-  <p>Listede ${n} müşteri var. Mesaiyi başlattığınızda hepsi gidiş sırasıyla gelir.</p></section>
+  <p>Listede ${n} bayi var. Mesaiyi başlattığınızda hepsi gidiş sırasıyla gelir.</p></section>
   ${todays.length?`<div class="sec">Bugünkü mesailer</div><div class="list">${todays.map(histRow).join('')}</div>`:''}
   <div class="bar"><div><button class="big" data-act="start">Mesaiyi Başlat</button></div></div>`;
 }
@@ -403,7 +403,7 @@ function histRow(s){
   const G=groups(s),t=total(sumItems(s.deliveries.map(d=>d.items))),z=total(bayatSum(s.deliveries)),i=total(iadeSum(s.deliveries));
   return`<button class="hist" data-act="summary" data-id="${s.id}"><b>${dmy(s.start)} · ${hm(s.start)}</b>
   <span class="chip ${s.sent?'c-sent':'c-unsent'}">${s.sent?'Gönderildi':'Gönderilmedi'}</span>
-  <span class="num">${G.length}/${s.cids.length} müşteri · ${t} taze${z?` · ${z} bayat`:''}${i?` · ${i} iade`:''}${cashOf(s.deliveries)?' · '+tl(cashOf(s.deliveries)):''}</span><span></span></button>`;
+  <span class="num">${G.length}/${s.cids.length} bayi · ${t} taze${z?` · ${z} bayat`:''}${i?` · ${i} iade`:''}${cashOf(s.deliveries)?' · '+tl(cashOf(s.deliveries)):''}</span><span></span></button>`;
 }
 function vShift(){
   const sh=active(),now=Date.now();
@@ -431,10 +431,10 @@ function vShift(){
     <div class="stat"><small>İade</small><b class="num">${total(iadeSum(sh.deliveries))}</b></div>
   </div>
   <div class="truck">${sh.loads.length?`<span>Araçta (tahmini): <b>${itemsText(rem,' · ')||'boş'}</b></span>`:`<span>Yükleme girilmedi</span>`}<button class="link" data-act="load">Yükleme ekle</button></div>
-  <div class="sec"><span>Müşteriler · gidiş sırası</span><span class="num">${sh.cids.length-del-done} bekliyor</span></div>
-  ${sh.cids.length>15?`<input class="search" id="search" type="search" placeholder="Müşteri ara" aria-label="Müşteri ara">`:''}
-  <div class="list" id="clist">${rows||`<div class="empty">Listede müşteri yok. Aşağıdan yeni müşteri ekleyin.</div>`}</div>
-  <div class="row-actions"><button class="btn wide" data-act="newcust">+ Yeni müşteri</button>
+  <div class="sec"><span>Bayiler · gidiş sırası</span><span class="num">${sh.cids.length-del-done} bekliyor</span></div>
+  ${sh.cids.length>15?`<input class="search" id="search" type="search" placeholder="Bayi ara" aria-label="Bayi ara">`:''}
+  <div class="list" id="clist">${rows||`<div class="empty">Listede bayi yok. Aşağıdan yeni bayi ekleyin.</div>`}</div>
+  <div class="row-actions"><button class="btn wide" data-act="newcust">+ Yeni bayi</button>
   ${sh.deliveries.length?'':`<button class="btn wide danger" data-act="cancelshift">Mesaiyi iptal et</button>`}</div>
   <div class="bar"><div><button class="big dark" data-act="finish">Mesaiyi Bitir</button></div></div>`;
 }
@@ -450,8 +450,8 @@ function vSummary(){
   <section class="hero"><h1>Mesai raporu</h1><p class="num">${dmy(sh.start)} · Başlangıç ${hm(sh.start)}</p>
   <p><span class="chip ${sh.sent?'c-sent':'c-unsent'}">${sh.sent?'WhatsApp\'a gönderildi':'Henüz gönderilmedi'}</span></p></section>
   <div class="tiles">
-    <div class="tile"><small>Teslim</small><b>${G.length}/${sh.cids.length}</b><p>müşteri</p></div>
-    <div class="tile"><small>Kasaya teslim</small><b>${tl(cash-exT)}</b><p>Nakit ${tl(cash)} − Masraf ${tl(exT)}${noPay?`<br>⚠️ ${noPay} müşteride tahsilat yok`:''}</p></div>
+    <div class="tile"><small>Teslim</small><b>${G.length}/${sh.cids.length}</b><p>bayi</p></div>
+    <div class="tile"><small>Kasaya teslim</small><b>${tl(cash-exT)}</b><p>Nakit ${tl(cash)} − Masraf ${tl(exT)}${noPay?`<br>⚠️ ${noPay} bayide tahsilat yok`:''}</p></div>
     <div class="tile"><small>Verilen</small><b>${total(t)+total(bz)}</b><p>Taze ${total(t)} · Bayat ${total(bz)}</p></div>
     <div class="tile"><small>İade</small><b>${total(iade)}</b><p>${itemsText(iade,' · ')||'iade alınmadı'}</p></div>
   </div>
@@ -483,12 +483,12 @@ function vSettings(){
     <div class="field"><label for="s_header">Rapor başlığı</label><input id="s_header" type="text" data-set="header" value="${esc(st.header)}"></div>
     <label class="check"><input id="s_startmsg" type="checkbox" data-set="startMsg" ${st.startMsg?'checked':''}> Mesai başlayınca "başladı" mesajı öner</label>
   </div>
-  <div class="sec">Ürünler</div>
-  <div class="set">${S.products.map(p=>`<div class="prow"><input type="text" id="pn_${p.id}" data-pname="${p.id}" value="${esc(p.name)}" aria-label="Ürün adı"><label><input type="checkbox" id="pa_${p.id}" data-pact="${p.id}" ${p.active?'checked':''}> Aktif</label></div>`).join('')}
-    <div class="prow"><input type="text" id="newprod" placeholder="Yeni ürün adı" aria-label="Yeni ürün adı"><button class="btn" data-act="addprod">Ekle</button></div></div>
-  <div class="sec"><span>Müşteriler · gidiş sırası</span><span>${S.customers.filter(c=>c.active).length} aktif</span></div>
-  <div class="set">${custs||'<div class="empty">Henüz müşteri yok.</div>'}
-    <div class="row-actions"><button class="btn wide" data-act="addcust">+ Müşteri ekle</button><button class="btn wide" data-act="bulk">Toplu ekle</button></div></div>
+  <div class="sec">Ekmek çeşitleri</div>
+  <div class="set">${S.products.map(p=>`<div class="prow"><input type="text" id="pn_${p.id}" data-pname="${p.id}" value="${esc(p.name)}" aria-label="Çeşit adı"><label><input type="checkbox" id="pa_${p.id}" data-pact="${p.id}" ${p.active?'checked':''}> Aktif</label></div>`).join('')}
+    <div class="prow"><input type="text" id="newprod" placeholder="Yeni çeşit adı" aria-label="Yeni çeşit adı"><button class="btn" data-act="addprod">Ekle</button></div></div>
+  <div class="sec"><span>Bayiler · gidiş sırası</span><span>${S.customers.filter(c=>c.active).length} aktif</span></div>
+  <div class="set">${custs||'<div class="empty">Henüz bayi yok.</div>'}
+    <div class="row-actions"><button class="btn wide" data-act="addcust">+ Bayi ekle</button><button class="btn wide" data-act="bulk">Toplu ekle</button></div></div>
   <div class="sec">Yedek</div>
   <div class="set"><p class="hint" style="margin:0 0 10px">Veriler yalnızca bu telefonda durur. Telefon değişirse yedekten yükleyin.</p>
     <div class="row-actions" style="margin:0"><button class="btn wide" data-act="backupcopy">Yedeği kopyala</button>
@@ -502,7 +502,7 @@ function vWizard(){
   let body='';
   if(w.step===1)body=`<div class="field"><label for="wz_f">Adınız</label><input id="wz_f" type="text" value="${esc(w.name)}" placeholder="Örn. Ahmet"><p class="hint">Raporun başında görünür.</p></div>`;
   if(w.step===2)body=`<div class="field"><label for="wz_f">Rapor yollanacak adres (WhatsApp numarası)</label><div class="phrow"><input id="wz_f" type="tel" inputmode="tel" value="${esc(w.phone)}" placeholder="0532 123 45 67">${pickBtn('wz_f')}</div><p class="hint">Rapor bu numaraya gider. Bir gruba gönderecekseniz boş bırakın; WhatsApp'ta grubu siz seçersiniz.</p></div>`;
-  if(w.step===3)body=`<div class="field"><label for="wz_f">Müşteriler (her satıra bir müşteri, gidiş sırasıyla)</label><textarea id="wz_f" placeholder="Yıldız Market&#10;Çınar Bakkal&#10;Güneş Lokanta">${esc(w.customers)}</textarea><p class="hint">Ekmek çeşitlerini her mesaide araç yüklemesinde yazarsınız. Standart adet ve günlük tahsilat bilgisini sonra Ayarlar'dan eklersiniz.</p></div>`;
+  if(w.step===3)body=`<div class="field"><label for="wz_f">Bayiler (her satıra bir bayi, gidiş sırasıyla)</label><textarea id="wz_f" placeholder="Yıldız Market&#10;Çınar Bakkal&#10;Güneş Lokanta">${esc(w.customers)}</textarea><p class="hint">Ekmek çeşitlerini her mesaide araç yüklemesinde yazarsınız. Standart adet ve günlük tahsilat bilgisini sonra Ayarlar'dan eklersiniz.</p></div>`;
   return`<header class="top"><div class="brand">${logo}Dağıtım Günlüğü</div><button class="link" data-act="wzdone">Kurulumu atla</button></header>
   <div class="wz-prog">${Array.from({length:steps},(_,i)=>`<i class="${i<w.step?'on':''}"></i>`).join('')}</div>
   <section class="hero"><h1>${['Hoş geldiniz','Rapor kime gidecek?','Hangi dükkânlara gidiyorsunuz?'][w.step-1]}</h1><p>Adım ${w.step}/${steps}</p></section>
@@ -545,7 +545,7 @@ function vSheet(){
     body+=`<div class="field"><label for="q_note">Not (isteğe bağlı)</label><input id="q_note" type="text" value="${esc(edit?edit.note:'')}" placeholder="Örn. kapıya bırakıldı"></div>`;
     body+=`<p class="err" id="q_err"></p></div>`;
     if(edit)body+=`<button class="btn danger" style="width:100%;margin-bottom:8px" data-act="deldel" data-id="${edit.id}">Bu teslimatı sil</button>`;
-    const sub=[mine.length&&!edit?`${mine.length+1}. teslimat`:'',c.note?esc(c.note):(c.daily?'💵 Günlük tahsilatlı müşteri':'')].filter(Boolean).join(' · ');
+    const sub=[mine.length&&!edit?`${mine.length+1}. teslimat`:'',c.note?esc(c.note):(c.daily?'💵 Günlük tahsilatlı bayi':'')].filter(Boolean).join(' · ');
     return sheetWrap(c.name,sub,body,`<button class="big" id="saveBtn" data-act="savedel">Kaydet</button>`);
   }
   if(s.t==='load'){
@@ -560,22 +560,22 @@ function vSheet(){
   if(s.t==='newcust'||s.t==='editcust'){
     const c=s.t==='editcust'?C(s.id):{name:'',phone:'',note:'',std:{},daily:false,active:true};
     const full=s.t==='editcust'||s.full;
-    let body=`<div class="field"><label for="n_name">Müşteri adı</label><input id="n_name" type="text" value="${esc(c.name)}" placeholder="Örn. Yıldız Market"></div>
+    let body=`<div class="field"><label for="n_name">Bayi adı</label><input id="n_name" type="text" value="${esc(c.name)}" placeholder="Örn. Yıldız Market"></div>
     <label class="check"><input id="n_daily" type="checkbox" ${c.daily?'checked':''}> Günlük nakit tahsilat yapılır</label>`;
     if(full){
       body+=`<div class="field"><label for="n_phone">Telefon</label><input id="n_phone" type="tel" inputmode="tel" value="${esc(c.phone)}"></div>
       <div class="field"><label for="n_note">Not</label><input id="n_note" type="text" value="${esc(c.note)}" placeholder="Örn. arka kapıdan"></div>
       <div class="flabel" style="margin-bottom:6px">Standart adet</div><div class="card">${S.products.filter(p=>p.active).map(p=>stepper('n_'+p.id,p.name,(c.std||{})[p.id])).join('')}</div>`;
-      if(s.t==='editcust')body+=`<label class="check"><input id="n_active" type="checkbox" ${c.active?'checked':''}> Aktif (pasif müşteri mesai listesine gelmez)</label>`;
+      if(s.t==='editcust')body+=`<label class="check"><input id="n_active" type="checkbox" ${c.active?'checked':''}> Aktif (pasif bayi mesai listesine gelmez)</label>`;
     }
     body+=`<p class="err" id="q_err"></p>`;
-    return sheetWrap(s.t==='editcust'?'Müşteriyi düzenle':'Yeni müşteri',s.t==='newcust'&&!full?'Bugünkü listenin sonuna eklenir':'',body,`<button class="big" data-act="savecust">${s.t==='editcust'?'Kaydet':'Ekle'}</button>`);
+    return sheetWrap(s.t==='editcust'?'Bayiyi düzenle':'Yeni bayi',s.t==='newcust'&&!full?'Bugünkü listenin sonuna eklenir':'',body,`<button class="big" data-act="savecust">${s.t==='editcust'?'Kaydet':'Ekle'}</button>`);
   }
   if(s.t==='finish'){
     const pend=sh.cids.filter(c=>statusOf(sh,c)==='bekliyor').length;
     let body='';
     if(!sh.deliveries.length)body+=`<div class="alert"><span><b>Hiç teslimat girilmedi.</b> Yine de bitirebilirsiniz.</span></div>`;
-    if(pend)body+=`<div class="alert"><span><b>${pend} müşteri işaretlenmedi.</b> Bitirince "Uğranmadı" sayılacaklar.</span></div>`;
+    if(pend)body+=`<div class="alert"><span><b>${pend} bayi işaretlenmedi.</b> Bitirince "Uğranmadı" sayılacaklar.</span></div>`;
     if(sh.loads.length){const r=remaining(sh);
       body+=`<div class="flabel">Araçta kalan</div><p class="hint" style="margin:0 0 8px">Hesaplanan değer. Gerekirse düzeltin.</p><div class="card">${S.products.filter(p=>p.id in r).map(p=>stepper('r_'+p.id,p.name,r[p.id])).join('')}</div>`;}
     // Masraflar: toplanan nakitten düşülür, kalan kasaya teslim edilir
@@ -593,13 +593,13 @@ function vSheet(){
     return sheetWrap('Açık kalan mesai',`${dmy(sh.start)} ${hm(sh.start)} saatinde başlayan mesai hâlâ açık.`,`<p style="margin:0">Bitirilsin mi?</p>`,`<button class="big dark" data-act="finish">Mesaiyi bitir</button><button class="btn" data-act="close">Devam et</button>`);
   }
   if(s.t==='bulk'){
-    return sheetWrap('Toplu müşteri ekle','Her satıra bir müşteri, gidiş sırasıyla',`<div class="field"><label for="b_txt">Müşteriler</label><textarea id="b_txt" placeholder="Yıldız Market&#10;Çınar Bakkal"></textarea></div><p class="err" id="q_err"></p>`,`<button class="big" data-act="savebulk">Listeye ekle</button>`);
+    return sheetWrap('Toplu bayi ekle','Her satıra bir bayi, gidiş sırasıyla',`<div class="field"><label for="b_txt">Bayiler</label><textarea id="b_txt" placeholder="Yıldız Market&#10;Çınar Bakkal"></textarea></div><p class="err" id="q_err"></p>`,`<button class="big" data-act="savebulk">Listeye ekle</button>`);
   }
   if(s.t==='restore'){
     return sheetWrap('Yedekten yükle','Mevcut veriler yedektekilerle değişir',`<div class="field"><label for="r_file">Yedek dosyası</label><input id="r_file" type="file" accept=".json,.txt,application/json,text/plain"></div><div class="field"><label for="r_txt">ya da yedek metnini yapıştırın</label><textarea id="r_txt"></textarea></div><p class="err" id="q_err"></p>`,`<button class="big" data-act="dorestore">Yedeği yükle</button>`);
   }
   if(s.t==='reset'){
-    return sheetWrap('Tüm verileri sil?','Müşteriler, ürünler ve mesai geçmişi silinir. Geri alınamaz.',`<p style="margin:0">Önce yedek almak isterseniz Ayarlar → Yedek bölümünü kullanın.</p>`,`<button class="big dark" data-act="doreset">Sil ve kurulumu başlat</button><button class="btn" data-act="close">Vazgeç</button>`);
+    return sheetWrap('Tüm verileri sil?','Bayiler, ekmek çeşitleri ve mesai geçmişi silinir. Geri alınamaz.',`<p style="margin:0">Önce yedek almak isterseniz Ayarlar → Yedek bölümünü kullanın.</p>`,`<button class="big dark" data-act="doreset">Sil ve kurulumu başlat</button><button class="btn" data-act="close">Vazgeç</button>`);
   }
   return'';
 }
@@ -717,8 +717,8 @@ const A={
   editcust:d=>openSheet({t:'editcust',id:d.id}),
   savecust:()=>{
     const s=ui.sheet,name=$('n_name').value.trim();
-    if(!name){err('Müşteri adı girin.');return}
-    if(nameTaken(name,s.id)){err('Bu isimde bir müşteri zaten var. Ayırt edici bir ad yazın (örn. "'+name+' 2").');return}
+    if(!name){err('Bayi adı girin.');return}
+    if(nameTaken(name,s.id)){err('Bu isimde bir bayi zaten var. Ayırt edici bir ad yazın (örn. "'+name+' 2").');return}
     const full=s.t==='editcust'||s.full;
     const c=s.t==='editcust'?C(s.id):{id:'c'+uid(),name,phone:'',note:'',std:{},daily:false,active:true};
     c.name=name;c.daily=$('n_daily').checked;
@@ -735,7 +735,7 @@ const A={
   savebulk:()=>{const lines=$('b_txt').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
     if(!lines.length){err('En az bir satır yazın.');return}
     let add=0,dup=0;lines.forEach(name=>{if(nameTaken(name)){dup++;return}S.customers.push({id:'c'+uid(),name,phone:'',note:'',std:{},daily:false,active:true});add++});
-    save();ui.sheet=null;render();toast(`${add} müşteri eklendi${dup?`, ${dup} tanesi zaten vardı`:''}`)},
+    save();ui.sheet=null;render();toast(`${add} bayi eklendi${dup?`, ${dup} tanesi zaten vardı`:''}`)},
   addprod:()=>{const v=$('newprod').value.trim();if(!v)return;S.products.push({id:'p'+uid(),name:v,active:true});save();render();toast(v+' eklendi')},
   finish:()=>openSheet({t:'finish'}),
   pickcontact:d=>{
